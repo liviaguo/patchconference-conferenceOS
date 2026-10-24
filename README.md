@@ -52,10 +52,10 @@ flowchart LR
   C --> L[graph/load.py]
   L --> G[(FalkorDB<br/>Event · Company:Account · Person<br/>Topic · Region · Opportunity)]
   G --> Q[score.cypher<br/>multi-hop, returns paths]
-  Q --> UI[Streamlit<br/>shortlist · why · cost]
-  UI --> AG[Outreach agent<br/>OpenAI, grounded in paths]
-  AG --> GATE{Approval gate<br/>Marketing AND BD}
-  GATE -->|both approved| SEND[Send batch]
+  Q --> UI[Streamlit<br/>ICP · shortlist · why · cost]
+  UI --> AG[Outreach drafts<br/>OpenAI, grounded in paths]
+  UI --> LIVE[Live scan<br/>Bright Data SERP per ICP account]
+  LIVE -->|quote-verified evidence| G
 ```
 
 ### Scoring
