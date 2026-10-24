@@ -13,7 +13,7 @@ def company_key(name: str) -> str:
     """Normalized company name used to match scraped names to ICP accounts."""
     s = re.sub(r"[^a-z0-9 ]+", " ", (name or "").lower())
     s = re.sub(SUFFIXES, " ", s)
-    return re.sub(r"\s+", " ", s).strip()
+    return re.sub(r"\s+", "", s)  # "ThermoFisher" == "Thermo Fisher"
 
 
 def load_accounts() -> list[dict]:
@@ -71,7 +71,9 @@ def build(graph, cache_doc: dict) -> dict:
     for e in cache_doc["events"]:
         c = e["costs"]
         events.append({
-            "event_id": e["event_id"], "name": e["name"]["value"], "series": e["series"],
+            # Scraped names can be generic ("2027 Annual Meeting"); display series + year instead.
+            "event_id": e["event_id"], "name": f"{e['series']} {e.get('edition_year') or ''}".strip(),
+            "official_name": e["name"]["value"], "series": e["series"],
             "start_date": e["start_date"]["value"] or "", "end_date": e["end_date"]["value"] or "",
             "city": e["city"]["value"] or "", "country": e["country"]["value"] or "",
             "region": e["region"], "url": e["url"], "fetched_at": e["name"]["fetched_at"],
@@ -114,14 +116,21 @@ def build(graph, cache_doc: dict) -> dict:
         """UNWIND $rows AS s MATCH (e:Event {event_id: s.event_id})
            MERGE (c:Company {key: s.key}) ON CREATE SET c.name = s.name
            MERGE (c)-[r:SPONSORS]->(e)
-           SET r.tier = s.tier, r.prov = s.prov, r.source_url = s.source_url""",
+           // several brands can map to one account (Cytiva, Beckman -> Danaher): keep every name, and the
+           // strongest tier, instead of letting the last row overwrite the evidence
+           SET r.as_name = CASE WHEN r.as_name IS NULL OR r.as_name = s.name THEN s.name
+                                WHEN r.as_name CONTAINS s.name THEN r.as_name ELSE r.as_name + '; ' + s.name END,
+               r.tier = CASE WHEN r.tier IS NULL OR r.tier IN ['', 'exhibitor'] THEN s.tier ELSE r.tier END,
+               r.prov = s.prov, r.source_url = s.source_url""",
         {"rows": sponsors},
     )
     graph.query(
         """UNWIND $rows AS s MATCH (e:Event {event_id: s.event_id})
            MERGE (c:Company {key: s.key}) ON CREATE SET c.name = s.name
            MERGE (c)-[r:ATTENDS]->(e)
-           SET r.prov = s.prov, r.basis = s.basis, r.source_url = s.source_url""",
+           SET r.as_name = CASE WHEN r.as_name IS NULL OR r.as_name = s.name THEN s.name
+                                WHEN r.as_name CONTAINS s.name THEN r.as_name ELSE r.as_name + '; ' + s.name END,
+               r.prov = s.prov, r.basis = s.basis, r.source_url = s.source_url""",
         {"rows": attends},
     )
     graph.query(
