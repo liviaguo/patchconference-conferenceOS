@@ -70,6 +70,10 @@ if age_h > STALE_HOURS:
     st.warning(f"⚠️ Showing cached event data from {fetched:%Y-%m-%d %H:%M} UTC ({age_h:.0f}h old). Live scrape not refreshed.")
 else:
     st.info(f"Event data scraped via Bright Data at {fetched:%Y-%m-%d %H:%M} UTC · {len(doc['events'])} events")
+if doc.get("rejected"):
+    with st.expander(f"🚫 {len(doc['rejected'])} scraped sources rejected by validation"):
+        for x in doc["rejected"]:
+            st.markdown(f"- **{x['series']}**: {x['reason']} ([source]({x['url']}))")
 
 with st.sidebar:
     st.header("Filters")
