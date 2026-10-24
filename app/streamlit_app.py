@@ -3,7 +3,7 @@ from __future__ import annotations
 
 import re
 import sys
-from datetime import datetime, timezone
+from datetime import date, datetime, timezone
 from pathlib import Path
 
 import pandas as pd
@@ -37,22 +37,27 @@ def load_scores(regions: tuple, date_from: str, date_to: str) -> list[dict]:
     return score_events(regions=list(regions), date_from=date_from, date_to=date_to)
 
 
+def q(s: str) -> str:
+    """Quote scraped text as a DOT identifier (names can contain quotes or backslashes)."""
+    return '"' + s.replace("\\", "\\\\").replace('"', '\\"') + '"'
+
+
 def path_to_dot(event: str, why: list[str]) -> str:
     lines = ['digraph G { rankdir=LR; node [shape=box, style="rounded,filled", fillcolor="#f4f4f5", fontname=Helvetica];',
-             f'"{event}" [fillcolor="#dbeafe"];']
+             f'{q(event)} [fillcolor="#dbeafe"];']
     for w in why:
         w = re.sub(r" \((scraped|estimated|simulated)\)$", "", w)
         m = re.match(r"(.+) <-\[WORKS_AT\]- (.+) -\[SPEAKS_AT\]-> (.+)", w)
         if m:
             acct, person, ev = m.groups()
-            lines += [f'"{acct}" [fillcolor="#dcfce7"];', f'"{person}" [shape=ellipse];',
-                      f'"{person}" -> "{acct}" [label="WORKS_AT"];', f'"{person}" -> "{ev}" [label="SPEAKS_AT"];']
+            lines += [f'{q(acct)} [fillcolor="#dcfce7"];', f'{q(person)} [shape=ellipse];',
+                      f'{q(person)} -> {q(acct)} [label="WORKS_AT"];', f'{q(person)} -> {q(ev)} [label="SPEAKS_AT"];']
             continue
         m = re.match(r"(.+) -\[(\w+)\]-> (.+)", w)
         if m:
             acct, rel, ev = m.groups()
             style = ', style=dashed' if rel == "ATTENDS" else ""
-            lines += [f'"{acct}" [fillcolor="#dcfce7"];', f'"{acct}" -> "{ev}" [label="{rel}"{style}];']
+            lines += [f'{q(acct)} [fillcolor="#dcfce7"];', f'{q(acct)} -> {q(ev)} [label="{rel}"{style}];']
     return "\n".join(lines + ["}"])
 
 
@@ -78,14 +83,21 @@ if doc.get("rejected"):
 with st.sidebar:
     st.header("Filters")
     regions = st.multiselect("Regions", ["US", "EU"], default=config.REGIONS)
-    date_from = st.text_input("From", config.DATE_FROM)
-    date_to = st.text_input("To", config.DATE_TO)
+    # date pickers, not free text: scoring compares ISO date strings
+    date_from = st.date_input("From", date.fromisoformat(config.DATE_FROM)).isoformat()
+    date_to = st.date_input("To", date.fromisoformat(config.DATE_TO)).isoformat()
     st.markdown("---")
     st.markdown("**Legend**")
     for v in PROV_BADGE.values():
         st.markdown(v)
     st.caption("Pipeline and past-event outcomes are **simulated** LabFlow data.")
 
+if not regions:
+    st.warning("Select at least one region.")
+    st.stop()
+if date_from > date_to:
+    st.warning("'From' date is after 'To' date.")
+    st.stop()
 rows = load_scores(tuple(regions), date_from, date_to)
 if not rows:
     st.warning("No events in this window/region.")
@@ -149,7 +161,10 @@ with tab_outreach:
     st.caption("One draft per ICP account present. Each draft cites the graph path that justifies it.")
     batch_id = f"{top['event_id']}-outreach"
     batch = gate.get(batch_id)
-    if st.button("Draft outreach with agent", disabled=not top["accounts"]):
+    already_sent = bool(batch and batch["status"] == "sent")
+    if already_sent:
+        st.success(f"This event's batch was sent at {batch['sent_at']}; it can't be redrafted.")
+    if st.button("Draft outreach with agent", disabled=not top["accounts"] or already_sent):
         opp_accts = {x["name"] for x in client.query(
             "MATCH (a:Account)-[:IN_PIPELINE]->(:Opportunity) WHERE a.name IN $names RETURN DISTINCT a.name AS name",
             {"names": top["accounts"]})}
@@ -161,9 +176,13 @@ with tab_outreach:
         edited = []
         for i, d in enumerate(batch["drafts"]):
             with st.expander(f"{d['account']} · owner: {d.get('owner', '?')}"):
+                if d.get("error"):
+                    st.error(f"Draft failed: {d['error']}")
                 st.markdown("**Evidence:** " + "; ".join(f"`{e}`" for e in d.get("evidence", [])))
-                subj = st.text_input("Subject", d["subject"], key=f"s{i}", disabled=batch["status"] == "sent")
-                body = st.text_area("Body", d["body"], key=f"b{i}", height=180, disabled=batch["status"] == "sent")
+                # keys include batch + version so text never carries over to another event or a newer draft
+                k = f"{batch_id}-{batch['digest']}-{i}"
+                subj = st.text_input("Subject", d["subject"], key=f"s-{k}", disabled=batch["status"] == "sent")
+                body = st.text_area("Body", d["body"], key=f"b-{k}", height=180, disabled=batch["status"] == "sent")
                 st.caption(d.get("rationale", ""))
                 edited.append(dict(d, subject=subj, body=body))
         if batch["status"] != "sent" and st.button("Save edits (resets approvals if changed)"):
@@ -185,10 +204,14 @@ with tab_approve:
                 if a and a["digest"] == batch["digest"]:
                     st.success(f"✅ {label} approved by {a['by']} at {a['at']}")
                 else:
-                    who = st.text_input(f"{label} approver", key=f"who_{role}")
-                    if st.button(f"Approve as {label}", key=f"ap_{role}", disabled=not who or batch["status"] == "sent"):
-                        gate.approve(batch_id, role, who)
-                        st.rerun()
+                    who = st.text_input(f"{label} approver", key=f"who_{role}_{batch_id}")
+                    if st.button(f"Approve as {label}", key=f"ap_{role}_{batch_id}",
+                                 disabled=not who or batch["status"] == "sent"):
+                        try:
+                            gate.approve(batch_id, role, who, digest=batch["digest"])
+                            st.rerun()
+                        except (PermissionError, ValueError) as ex:
+                            st.error(str(ex))
         sendable = gate.is_sendable(batch)
         if batch["status"] == "sent":
             st.success(f"Batch marked sent at {batch['sent_at']} (demo: no emails leave the system).")
