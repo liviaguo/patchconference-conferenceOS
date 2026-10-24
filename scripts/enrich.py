@@ -40,13 +40,15 @@ def enrich(e: dict) -> dict:
         for s in (info.get("sponsors") or []) + [{"name": n, "tier": "exhibitor"} for n in info.get("exhibitors") or []]:
             if s.get("name") and s["name"].lower() not in seen_s:
                 seen_s.add(s["name"].lower())
+                # Record the year the page states (may be None), don't stamp the target year on it
                 e["sponsors"].append({"name": s["name"], "tier": s.get("tier"), "prov": "scraped",
-                                      "year": int(year), "source_url": url})
+                                      "year": info.get("edition_year"), "source_url": url,
+                                      "fetched_at": cache.now_iso()})
                 added_s += 1
         for p in info.get("speakers") or []:
             if p.get("name") and p["name"].lower() not in seen_p:
                 seen_p.add(p["name"].lower())
-                e["speakers"].append(dict(p, prov="scraped", source_url=url))
+                e["speakers"].append(dict(p, prov="scraped", source_url=url, fetched_at=cache.now_iso()))
                 added_p += 1
     print(f"  ✓ {series}: +{added_s} sponsors/exhibitors, +{added_p} speakers")
     return e

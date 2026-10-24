@@ -22,6 +22,14 @@ REJECT = [
 ]
 
 
+def test_acronym_with_year_matches_without_url():
+    assert reject_reason("SLAS Europe", "EU", "SLAS2027 Europe", "EU", "https://example.com/") is None
+
+
+def test_rejects_wrong_edition_year():
+    assert "2026 edition" in reject_reason("Pittcon", "US", "Pittcon 2026", "US", "https://pittcon.org", 2026)
+
+
 @pytest.mark.parametrize("series,hint,name,region,url", KEEP)
 def test_keeps_real_pages(series, hint, name, region, url):
     assert reject_reason(series, hint, name, region, url) is None

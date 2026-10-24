@@ -10,7 +10,9 @@ WITH e, r, total_icp,
      collect({acct: a1.name, prov: d.prov,
               path: a1.name + CASE WHEN d.as_name IS NULL OR toLower(d.as_name) STARTS WITH toLower(a1.name)
                                    THEN '' ELSE ' (as ' + d.as_name + ')' END
-                    + ' -[' + type(d) + ']-> ' + e.name}) AS direct
+                    // exhibitors are stored on SPONSORS edges with tier 'exhibitor'; don't call them sponsors
+                    + ' -[' + CASE WHEN type(d) = 'SPONSORS' AND d.tier = 'exhibitor' THEN 'EXHIBITS_AT' ELSE type(d) END
+                    + ']-> ' + e.name}) AS direct
 
 // hop 2: someone from the account speaks
 OPTIONAL MATCH (a2:Account)<-[:WORKS_AT]-(p:Person)-[s:SPEAKS_AT]->(e)
