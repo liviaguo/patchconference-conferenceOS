@@ -25,4 +25,43 @@ FalkorDB runs on FalkorDB Cloud. `docker compose up` is a local fallback.
 
 If scraping fails, the app falls back to `data/cache/*.json` and shows a warning badge.
 
-_Architecture diagram: TODO_
+## Run the demo
+
+```bash
+.venv/bin/python scripts/gen_synthetic.py      # simulated pipeline + past outcomes
+.venv/bin/python scripts/discover.py           # Bright Data -> data/cache/events_*.json
+.venv/bin/python scripts/discover.py --retry-incomplete
+.venv/bin/python scripts/enrich.py             # speakers + exhibitors pages
+.venv/bin/python scripts/seed_graph.py         # cache -> FalkorDB
+.venv/bin/streamlit run app/streamlit_app.py
+.venv/bin/python -m pytest -q
+```
+
+## Architecture
+
+```mermaid
+flowchart LR
+  subgraph Discover
+    S[event_seeds.csv] --> SERP[Bright Data SERP]
+    SERP --> UNL[Bright Data Web Unlocker]
+    UNL --> EX[OpenAI extraction<br/>nulls, never guesses]
+    EX --> C[(data/cache/events_*.json<br/>prov + fetched_at)]
+  end
+  ICP[icp_accounts.csv<br/>real] --> L
+  SYN[synthetic/*.csv<br/>simulated] --> L
+  C --> L[graph/load.py]
+  L --> G[(FalkorDB<br/>Event · Company:Account · Person<br/>Topic · Region · Opportunity)]
+  G --> Q[score.cypher<br/>multi-hop, returns paths]
+  Q --> UI[Streamlit<br/>shortlist · why · cost]
+  UI --> AG[Outreach agent<br/>OpenAI, grounded in paths]
+  AG --> GATE{Approval gate<br/>Marketing AND BD}
+  GATE -->|both approved| SEND[Send batch]
+```
+
+### Scoring
+
+- **Presence**: an ICP account is present at an event if it `SPONSORS` it (scraped), `ATTENDS` it
+  (prior-year exhibitor, *estimated*), or employs a person who `SPEAKS_AT` it (scraped, 2 hops).
+- **Density**: accounts present / total ICP accounts
+- **Cost**: passes + booth + travel; each item tagged scraped or estimated
+- **Rank**: ICP target accounts reached per $10k. Each hit returns the graph path that explains it.
