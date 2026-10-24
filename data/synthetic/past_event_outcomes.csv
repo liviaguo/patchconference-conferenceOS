@@ -1,0 +1,25 @@
+series,year,spend_usd,meetings,opps_created,pipeline_usd,simulated
+SLAS International Conference,2025,23000,10,2,366000,true
+SLAS International Conference,2026,52000,16,4,568000,true
+SLAS Europe,2024,23000,19,3,189000,true
+Bio-IT World Conference & Expo,2024,25000,24,3,576000,true
+Bio-IT World Conference & Expo,2025,39000,22,3,525000,true
+Bio-IT World Conference & Expo,2026,50000,3,0,0,true
+BIO International Convention,2026,33000,16,1,156000,true
+BIO-Europe Spring,2024,31000,19,1,169000,true
+AACR Annual Meeting,2024,55000,19,4,360000,true
+AACR Annual Meeting,2025,25000,20,4,160000,true
+AACR Annual Meeting,2026,46000,3,0,0,true
+Pittcon,2026,18000,10,2,120000,true
+PEGS Boston,2024,46000,5,0,0,true
+ASGCT Annual Meeting,2024,48000,22,3,282000,true
+Biotech Showcase,2026,57000,23,2,304000,true
+Festival of Genomics,2025,30000,10,0,0,true
+Festival of Genomics,2026,50000,10,2,192000,true
+Paperless Lab Academy,2024,60000,23,0,0,true
+Paperless Lab Academy,2025,17000,13,0,0,true
+Paperless Lab Academy,2026,57000,18,1,178000,true
+Society of Toxicology Annual Meeting,2024,51000,21,3,306000,true
+CPHI Americas,2024,21000,24,3,390000,true
+CPHI Americas,2025,44000,4,0,0,true
+CPHI Americas,2026,36000,6,0,0,true
