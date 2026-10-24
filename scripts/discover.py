@@ -15,6 +15,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from conferenceos.config import DATA  # noqa: E402
 from conferenceos.discover import brightdata, cache  # noqa: E402
+from conferenceos.discover.validate import reject_reason, same_event  # noqa: E402
 from conferenceos.discover.extract import extract_event  # noqa: E402
 
 EU_CODES = {
@@ -74,19 +75,26 @@ def discover_one(seed: dict, travel: dict) -> dict | None:
         return None
     t = cache.now_iso()
 
-    sponsors = [dict(s, prov="scraped", year=info.get("edition_year"), source_url=url) for s in info.get("sponsors") or []]
+    cc = (info.get("country_code") or "").upper()
+    region = "US" if cc == "US" else "EU" if cc in EU_CODES else (seed["region_hint"] if not cc else "OTHER")
+    why_not = reject_reason(series, seed["region_hint"], info.get("name"), region, url)
+    if why_not:
+        print(f"  ! {series}: rejected {url}: {why_not}")
+        return None
+
+    sponsors =[dict(s, prov="scraped", year=info.get("edition_year"), source_url=url) for s in info.get("sponsors") or []]
     sponsors += [{"name": n, "tier": "exhibitor", "prov": "scraped", "year": info.get("edition_year"), "source_url": url}
                  for n in info.get("exhibitors") or []]
     speakers = [dict(s, prov="scraped", source_url=url) for s in info.get("speakers") or []]
 
     # 2027 lists are often unpublished this far out; prior-year exhibitors are an estimate of attendance.
     prior, prior_url = scrape_and_extract(f"{series} 2026 exhibitor list", "2026")
+    if prior_url and not same_event(series, prior.get("name") or "", prior_url):
+        print(f"  - {series}: ignored prior-year list from {prior_url} (page is about {prior.get('name')!r})")
+        prior = {}
     prior_exhibitors = [{"name": n, "prov": "estimated", "year": 2026, "source_url": prior_url,
                          "basis": "prior_year_exhibitor"}
                         for n in (prior.get("exhibitors") or []) + [s["name"] for s in prior.get("sponsors") or []]]
-
-    cc = (info.get("country_code") or "").upper()
-    region = "US" if cc == "US" else "EU" if cc in EU_CODES else (seed["region_hint"] if not cc else "OTHER")
 
     pass_usd, pass_note = to_usd(info.get("pass_price"))
     booth_usd, booth_note = to_usd(info.get("booth_price"))

@@ -5,7 +5,6 @@ Usage: .venv/bin/python scripts/enrich.py
 """
 from __future__ import annotations
 
-import re
 import sys
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
@@ -13,15 +12,8 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from conferenceos.discover import cache  # noqa: E402
+from conferenceos.discover.validate import same_event  # noqa: E402
 from discover import scrape_and_extract  # noqa: E402
-
-
-STOP = {"conference", "annual", "meeting", "international", "expo", "the", "of", "and", "&", "summit"}
-
-
-def _same_event(series: str, page_name: str) -> bool:
-    want = {w for w in re.findall(r"[a-z0-9-]+", series.lower()) if w not in STOP}
-    return bool(want & set(re.findall(r"[a-z0-9-]+", page_name.lower())))
 
 
 def enrich(e: dict) -> dict:
@@ -42,7 +34,7 @@ def enrich(e: dict) -> dict:
             print(f"  - {series}: skipped {url} (edition {info.get('edition_year')})")
             continue
         # ...and that are about this event at all (guards against unrelated pages' sponsor lists)
-        if not _same_event(series, info.get("name") or ""):
+        if not same_event(series, info.get("name") or "", url):
             print(f"  - {series}: skipped {url} (page is about {info.get('name')!r})")
             continue
         for s in (info.get("sponsors") or []) + [{"name": n, "tier": "exhibitor"} for n in info.get("exhibitors") or []]:
