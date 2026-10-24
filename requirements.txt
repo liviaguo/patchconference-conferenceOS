@@ -1,0 +1,7 @@
+falkordb
+streamlit
+pydantic>=2
+openai
+python-dotenv
+requests
+pytest

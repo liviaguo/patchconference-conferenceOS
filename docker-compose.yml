@@ -1,0 +1,7 @@
+# Local fallback if FalkorDB Cloud is unreachable during the demo.
+services:
+  falkordb:
+    image: falkordb/falkordb:latest
+    ports:
+      - "6379:6379"
+      - "3000:3000"
