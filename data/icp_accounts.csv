@@ -1,0 +1,31 @@
+account_id,name,aliases,domain,hq_country,region,segment,tier,source_url
+A001,Moderna,Moderna Therapeutics,modernatx.com,US,US,biotech,1,https://www.modernatx.com
+A002,Vertex Pharmaceuticals,Vertex,vrtx.com,US,US,biotech,1,https://www.vrtx.com
+A003,Regeneron Pharmaceuticals,Regeneron,regeneron.com,US,US,biotech,1,https://www.regeneron.com
+A004,Amgen,,amgen.com,US,US,pharma,1,https://www.amgen.com
+A005,Gilead Sciences,Gilead,gilead.com,US,US,pharma,1,https://www.gilead.com
+A006,Biogen,,biogen.com,US,US,biotech,1,https://www.biogen.com
+A007,Alnylam Pharmaceuticals,Alnylam,alnylam.com,US,US,biotech,2,https://www.alnylam.com
+A008,Illumina,,illumina.com,US,US,tools,2,https://www.illumina.com
+A009,Thermo Fisher Scientific,Thermo Fisher,thermofisher.com,US,US,tools,2,https://www.thermofisher.com
+A010,Danaher,,danaher.com,US,US,tools,2,https://www.danaher.com
+A011,Recursion Pharmaceuticals,Recursion,recursion.com,US,US,biotech,2,https://www.recursion.com
+A012,Ginkgo Bioworks,Ginkgo,ginkgobioworks.com,US,US,biotech,2,https://www.ginkgobioworks.com
+A013,Charles River Laboratories,Charles River,criver.com,US,US,cro,2,https://www.criver.com
+A014,Intellia Therapeutics,Intellia,intelliatx.com,US,US,biotech,3,https://www.intelliatx.com
+A015,Beam Therapeutics,Beam,beamtx.com,US,US,biotech,3,https://www.beamtx.com
+A016,Novartis,,novartis.com,CH,EU,pharma,1,https://www.novartis.com
+A017,Roche,Genentech;F. Hoffmann-La Roche,roche.com,CH,EU,pharma,1,https://www.roche.com
+A018,AstraZeneca,,astrazeneca.com,GB,EU,pharma,1,https://www.astrazeneca.com
+A019,GSK,GlaxoSmithKline,gsk.com,GB,EU,pharma,1,https://www.gsk.com
+A020,Sanofi,,sanofi.com,FR,EU,pharma,1,https://www.sanofi.com
+A021,Novo Nordisk,,novonordisk.com,DK,EU,pharma,1,https://www.novonordisk.com
+A022,Bayer,,bayer.com,DE,EU,pharma,1,https://www.bayer.com
+A023,Merck KGaA,MilliporeSigma;EMD,merckgroup.com,DE,EU,tools,2,https://www.merckgroup.com
+A024,BioNTech,,biontech.com,DE,EU,biotech,1,https://www.biontech.com
+A025,argenx,,argenx.com,NL,EU,biotech,2,https://www.argenx.com
+A026,Genmab,,genmab.com,DK,EU,biotech,2,https://www.genmab.com
+A027,UCB,,ucb.com,BE,EU,pharma,2,https://www.ucb.com
+A028,Lonza,,lonza.com,CH,EU,cro,2,https://www.lonza.com
+A029,Evotec,,evotec.com,DE,EU,cro,2,https://www.evotec.com
+A030,Exscientia,,exscientia.ai,GB,EU,biotech,3,https://www.exscientia.ai
