@@ -16,13 +16,30 @@ from conferenceos.discover import cache, live_scan  # noqa: E402
 from conferenceos.graph.load import build, load_accounts  # noqa: E402
 from conferenceos import icp_store  # noqa: E402
 from conferenceos.agent.outreach import draft_batch  # noqa: E402
-from conferenceos.approvals import gate  # noqa: E402
 from conferenceos.graph import client  # noqa: E402
 from conferenceos.graph.score import score_events  # noqa: E402
 
 st.set_page_config(page_title="ConferenceOS", layout="wide")
 
-PROV_BADGE = {"scraped": "🟢 scraped", "estimated": "🟡 estimated", "simulated": "🟣 simulated"}
+PROV_BADGE = {"scraped": "Scraped", "estimated": "Estimated", "simulated": "Simulated"}
+PROV_COLOR = {"scraped": "#4C8C6B", "estimated": "#C29B3E", "simulated": "#8A7BB0"}
+
+CSS = """
+<style>
+  .block-container {max-width: 1180px; padding-top: 2.2rem;}
+  h1 {font-weight: 600; letter-spacing: -0.02em; font-size: 2rem !important;}
+  h2, h3 {font-weight: 600; letter-spacing: -0.01em;}
+  [data-testid="stSidebar"] {border-right: 1px solid #E6E8EB;}
+  .stTabs [data-baseweb="tab-list"] {gap: 1.5rem; border-bottom: 1px solid #E6E8EB;}
+  .stTabs [data-baseweb="tab"] {padding: 0.4rem 0; font-weight: 500;}
+  .stButton button, .stDownloadButton button {border-radius: 8px; border: 1px solid #D5D9DE; font-weight: 500;}
+  [data-testid="stMetric"] {background: #FFFFFF; border: 1px solid #E6E8EB; border-radius: 10px; padding: 0.8rem 1rem;}
+  [data-testid="stExpander"] details {border: 1px solid #E6E8EB; border-radius: 10px; background: #FFFFFF;}
+  .muted {color: #6B7280; font-size: 0.9rem;}
+  .dot {display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px;}
+</style>
+"""
+st.markdown(CSS, unsafe_allow_html=True)
 STALE_HOURS = 24
 
 
@@ -74,11 +91,12 @@ if not doc:
 fetched = datetime.fromisoformat(doc["fetched_at"])
 age_h = (datetime.now(timezone.utc) - fetched).total_seconds() / 3600
 if age_h > STALE_HOURS:
-    st.warning(f"⚠️ Showing cached event data from {fetched:%Y-%m-%d %H:%M} UTC ({age_h:.0f}h old). Live scrape not refreshed.")
+    st.warning(f"Showing cached event data from {fetched:%Y-%m-%d %H:%M} UTC ({age_h:.0f}h old). Live scrape not refreshed.")
 else:
-    st.info(f"Event data scraped via Bright Data at {fetched:%Y-%m-%d %H:%M} UTC · {len(doc['events'])} events")
+    st.markdown(f"<p class='muted'>{len(doc['events'])} events scraped via Bright Data · "
+                f"{fetched:%b %d, %H:%M} UTC · graph in FalkorDB</p>", unsafe_allow_html=True)
 if doc.get("rejected"):
-    with st.expander(f"🚫 {len(doc['rejected'])} scraped sources rejected by validation"):
+    with st.expander(f"{len(doc['rejected'])} scraped sources rejected by validation"):
         for x in doc["rejected"]:
             st.markdown(f"- **{x['series']}**: {x['reason']} ([source]({x['url']}))")
 
@@ -89,9 +107,9 @@ with st.sidebar:
     date_from = st.date_input("From", date.fromisoformat(config.DATE_FROM)).isoformat()
     date_to = st.date_input("To", date.fromisoformat(config.DATE_TO)).isoformat()
     st.markdown("---")
-    st.markdown("**Legend**")
-    for v in PROV_BADGE.values():
-        st.markdown(v)
+    st.markdown("**Data provenance**")
+    for k, v in PROV_BADGE.items():
+        st.markdown(f"<span class='dot' style='background:{PROV_COLOR[k]}'></span>{v}", unsafe_allow_html=True)
     st.caption("Pipeline and past-event outcomes are **simulated** LabFlow data.")
 
 if not regions:
@@ -100,8 +118,7 @@ if not regions:
 if date_from > date_to:
     st.warning("'From' date is after 'To' date.")
     st.stop()
-tab_icp, tab_list, tab_why, tab_outreach, tab_approve = st.tabs(
-    ["① ICP & live scan", "② Shortlist", "③ Why", "④ Outreach", "⑤ Approvals"])
+tab_icp, tab_list, tab_why, tab_outreach = st.tabs(["Target accounts", "Shortlist", "Why", "Outreach"])
 
 # ---------- ICP + live Bright Data scan ----------
 ICP_COLS = ["name", "aliases", "segment", "tier", "region"]
@@ -129,7 +146,7 @@ def rebuild(icp: list[dict]) -> dict:
 
 
 with tab_icp:
-    st.subheader("Who are we trying to meet?")
+    st.subheader("Who do we want to meet?")
     st.caption("Edit the ICP target accounts: add a row, change tiers, add aliases (e.g. subsidiaries, `;`-separated). "
                "Then apply to re-score every event in the graph, or run a live Bright Data scan for fresh evidence.")
     if "icp_df" not in st.session_state:
@@ -151,24 +168,24 @@ with tab_icp:
             with st.spinner("Rebuilding graph in FalkorDB…"):
                 stats = rebuild(icp)
             st.session_state.icp_df = edited
-            st.success(f"Graph rebuilt: {stats['accounts']} ICP accounts, {stats['events']} events.")
+            st.toast(f"Graph rebuilt: {stats['accounts']} target accounts, {stats['events']} events")
     with c2:
         names = [a["name"] for a in icp]
         prev_scanned = {x["account"] for x in live_scan.load_evidence()}
         to_scan = st.multiselect("Accounts to scan live", names,
                                  default=[n for n in names if n not in prev_scanned][:8] or names[:8])
 
-    if st.button("🔴 Live scan with Bright Data", type="primary", disabled=not to_scan):
+    if st.button("Run live scan with Bright Data", disabled=not to_scan):
         events_in_scope = doc["events"]
         found: list[dict] = []
         with st.status(f"Scanning {len(to_scan)} accounts across {len(events_in_scope)} events via Bright Data SERP…",
                        expanded=True) as status:
             for res in live_scan.scan(to_scan, events_in_scope):
                 if res.get("error"):
-                    st.write(f"⚠️ **{res['account']}**: {res['error']}")
+                    st.write(f"**{res['account']}**: {res['error']}")
                     continue
                 hits = ", ".join(f"{m['relation']} @ {m['event']}" for m in res["matches"]) or "no verifiable 2027 evidence"
-                st.write(f"{'✅' if res['matches'] else '·'} **{res['account']}**: {res['n_results']} results "
+                st.write(f"{'✓' if res['matches'] else '–'} **{res['account']}**: {res['n_results']} results "
                          f"in {res['seconds']:.1f}s → {hits}")
                 found += res["matches"]
             status.update(label=f"Live scan done: {len(found)} verified links. Updating graph…", state="running")
@@ -234,7 +251,7 @@ with tab_why:
             for w in r["why"]:
                 st.markdown(f"- `{w}`")
         else:
-            st.info("No ICP accounts found at this event yet (sponsor/speaker lists may not be published).")
+            st.caption("No target accounts found at this event yet (sponsor and speaker lists may not be published).")
     with right:
         st.subheader("Cost breakdown")
         st.dataframe(pd.DataFrame([
@@ -242,72 +259,39 @@ with tab_why:
             {"Item": "Booth / sponsorship", "USD": money(r["booth_price"]), "Source": badge(r["booth_price_prov"]), "Note": r["booth_price_note"]},
             {"Item": "Travel", "USD": money(r["travel_est"]), "Source": badge(r["travel_est_prov"]), "Note": r["travel_est_note"]},
         ]), hide_index=True, use_container_width=True)
-        st.markdown(f"**Simulated pipeline on present accounts:** {money(r['simulated_pipeline_usd'])} 🟣")
+        st.markdown(f"**Simulated pipeline on present accounts:** {money(r['simulated_pipeline_usd'])}")
         st.markdown(f"[Event page]({r['url']}) · scraped {r['fetched_at']}")
 
 # ---------- outreach ----------
 with tab_outreach:
-    top = rows[0]
-    st.subheader(f"Outreach for #1: {top['event']}")
-    st.caption("One draft per ICP account present. Each draft cites the graph path that justifies it.")
-    batch_id = f"{top['event_id']}-outreach"
-    batch = gate.get(batch_id)
-    already_sent = bool(batch and batch["status"] == "sent")
-    if already_sent:
-        st.success(f"This event's batch was sent at {batch['sent_at']}; it can't be redrafted.")
-    if st.button("Draft outreach with agent", disabled=not top["accounts"] or already_sent):
+    names = [f"{i + 1}. {r['event']}" for i, r in enumerate(rows) if r["accounts"]]
+    if not names:
+        st.write("No ICP accounts found at any shortlisted event yet.")
+        st.stop()
+    pick = st.selectbox("Event", names, key="outreach_event")
+    top = rows[int(pick.split(".")[0]) - 1]
+    st.caption("One draft per ICP account present, each grounded in the graph path that puts the account there. "
+               "Drafts are for review and editing; nothing is sent from here.")
+    drafts_by_event = st.session_state.setdefault("drafts", {})
+    if st.button(f"Draft {len(top['accounts'])} emails"):
         opp_accts = {x["name"] for x in client.query(
             "MATCH (a:Account)-[:IN_PIPELINE]->(:Opportunity) WHERE a.name IN $names RETURN DISTINCT a.name AS name",
             {"names": top["accounts"]})}
-        with st.spinner(f"Drafting {len(top['accounts'])} emails…"):
-            drafts = draft_batch(top, opp_accts)
-        batch = gate.submit(batch_id, top["event_id"], drafts)
-        st.success("Drafts submitted for approval (Marketing + BD).")
-    if batch:
-        edited = []
-        for i, d in enumerate(batch["drafts"]):
-            with st.expander(f"{d['account']} · owner: {d.get('owner', '?')}"):
+        with st.spinner("Drafting…"):
+            drafts_by_event[top["event_id"]] = draft_batch(top, opp_accts)
+    drafts = drafts_by_event.get(top["event_id"])
+    if drafts:
+        export = []
+        for i, d in enumerate(drafts):
+            with st.expander(f"{d['account']}  ·  owner: {d.get('owner', '?')}", expanded=i == 0):
                 if d.get("error"):
                     st.error(f"Draft failed: {d['error']}")
-                st.markdown("**Evidence:** " + "; ".join(f"`{e}`" for e in d.get("evidence", [])))
-                # keys include batch + version so text never carries over to another event or a newer draft
-                k = f"{batch_id}-{batch['digest']}-{i}"
-                subj = st.text_input("Subject", d["subject"], key=f"s-{k}", disabled=batch["status"] == "sent")
-                body = st.text_area("Body", d["body"], key=f"b-{k}", height=180, disabled=batch["status"] == "sent")
-                st.caption(d.get("rationale", ""))
-                edited.append(dict(d, subject=subj, body=body))
-        if batch["status"] != "sent" and st.button("Save edits (resets approvals if changed)"):
-            gate.update_drafts(batch_id, edited)
-            st.rerun()
-
-# ---------- approvals ----------
-with tab_approve:
-    batch_id = f"{rows[0]['event_id']}-outreach"
-    batch = gate.get(batch_id)
-    if not batch:
-        st.info("No outreach batch yet. Draft one in the Outreach tab.")
-    else:
-        st.subheader(f"Batch for {rows[0]['event']} · {len(batch['drafts'])} drafts · v{batch['digest']}")
-        cols = st.columns(2)
-        for col, (role, label) in zip(cols, [("marketing", "Marketing"), ("bd", "BD")]):
-            with col:
-                a = batch["approvals"].get(role)
-                if a and a["digest"] == batch["digest"]:
-                    st.success(f"✅ {label} approved by {a['by']} at {a['at']}")
-                else:
-                    who = st.text_input(f"{label} approver", key=f"who_{role}_{batch_id}")
-                    if st.button(f"Approve as {label}", key=f"ap_{role}_{batch_id}",
-                                 disabled=not who or batch["status"] == "sent"):
-                        try:
-                            gate.approve(batch_id, role, who, digest=batch["digest"])
-                            st.rerun()
-                        except (PermissionError, ValueError) as ex:
-                            st.error(str(ex))
-        sendable = gate.is_sendable(batch)
-        if batch["status"] == "sent":
-            st.success(f"Batch marked sent at {batch['sent_at']} (demo: no emails leave the system).")
-        else:
-            st.markdown("**Status:** " + ("🟢 sendable" if sendable else "🔒 locked: needs Marketing **and** BD"))
-            if st.button("Send batch", type="primary", disabled=not sendable):
-                gate.mark_sent(batch_id)
-                st.rerun()
+                st.caption("Evidence: " + " · ".join(d.get("evidence", [])))
+                # keys include the event so text never carries over between events
+                k = f"{top['event_id']}-{i}"
+                subj = st.text_input("Subject", d["subject"], key=f"s-{k}")
+                body = st.text_area("Body", d["body"], key=f"b-{k}", height=200)
+                export.append({"account": d["account"], "owner": d.get("owner"), "subject": subj, "body": body,
+                               "evidence": " | ".join(d.get("evidence", []))})
+        st.download_button("Download drafts (CSV)", pd.DataFrame(export).to_csv(index=False),
+                           file_name=f"{top['event_id']}-outreach.csv", mime="text/csv")
