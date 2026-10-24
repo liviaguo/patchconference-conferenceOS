@@ -1,0 +1,3 @@
+origin_region,dest_region,per_person_usd,default_headcount,prov,note
+US,US,1800,3,estimated,flight + 3 nights hotel + per diem (team assumption)
+US,EU,3200,3,estimated,transatlantic flight + 3 nights hotel + per diem (team assumption)

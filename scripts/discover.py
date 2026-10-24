@@ -1,0 +1,155 @@
+"""Discover events via Bright Data (SERP -> Unlocker -> LLM extract) and write data/cache/events_*.json.
+
+Usage: .venv/bin/python scripts/discover.py [--limit N]
+"""
+from __future__ import annotations
+
+import argparse
+import csv
+import re
+import sys
+from concurrent.futures import ThreadPoolExecutor
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
+from conferenceos.config import DATA  # noqa: E402
+from conferenceos.discover import brightdata, cache  # noqa: E402
+from conferenceos.discover.extract import extract_event  # noqa: E402
+
+EU_CODES = {
+    "AT", "BE", "BG", "CH", "CY", "CZ", "DE", "DK", "EE", "ES", "FI", "FR", "GB", "UK", "GR", "HR",
+    "HU", "IE", "IS", "IT", "LT", "LU", "LV", "MT", "NL", "NO", "PL", "PT", "RO", "SE", "SI", "SK",
+}
+# Fixed FX for the demo; converted values are flagged in `note`.
+FX_TO_USD = {"USD": 1.0, "EUR": 1.08, "GBP": 1.27, "CHF": 1.13}
+# Used only when the page doesn't publish a booth price.
+BOOTH_DEFAULT_USD = {"US": 15000, "EU": 13000}
+SKIP_DOMAINS = ("linkedin.com", "facebook.com", "x.com", "twitter.com", "wikipedia.org", "youtube.com", "eventbrite")
+
+
+def sourced(value, prov: str, source_url: str | None, fetched_at: str, note: str = "") -> dict:
+    return {"value": value, "prov": prov, "source_url": source_url, "fetched_at": fetched_at, "note": note}
+
+
+def slug(s: str) -> str:
+    return re.sub(r"[^a-z0-9]+", "-", s.lower()).strip("-")
+
+
+def first_useful_link(results: list[dict]) -> str | None:
+    for r in results:
+        link = r.get("link") or ""
+        if link and not any(d in link for d in SKIP_DOMAINS):
+            return link
+    return None
+
+
+def scrape_and_extract(query: str) -> tuple[dict, str | None]:
+    url = first_useful_link(brightdata.serp(query))
+    if not url:
+        return {}, None
+    return extract_event(brightdata.unlock(url), url), url
+
+
+def to_usd(price: dict | None) -> tuple[float | None, str]:
+    if not price or price.get("amount") is None:
+        return None, ""
+    cur = (price.get("currency") or "USD").upper()
+    rate = FX_TO_USD.get(cur)
+    if rate is None:
+        return None, f"unsupported currency {cur}"
+    note = price.get("label") or ""
+    if cur != "USD":
+        note = f"{note}; {price['amount']} {cur} converted at {rate}".strip("; ")
+    return round(price["amount"] * rate), note
+
+
+def discover_one(seed: dict, travel: dict) -> dict | None:
+    series = seed["series"]
+    info, url = scrape_and_extract(seed["search_query"])
+    if not url:
+        print(f"  ! {series}: no result")
+        return None
+    t = cache.now_iso()
+
+    sponsors = [dict(s, prov="scraped", year=info.get("edition_year"), source_url=url) for s in info.get("sponsors") or []]
+    sponsors += [{"name": n, "tier": "exhibitor", "prov": "scraped", "year": info.get("edition_year"), "source_url": url}
+                 for n in info.get("exhibitors") or []]
+    speakers = [dict(s, prov="scraped", source_url=url) for s in info.get("speakers") or []]
+
+    # 2027 lists are often unpublished this far out; prior-year exhibitors are an estimate of attendance.
+    prior, prior_url = scrape_and_extract(f"{series} 2026 exhibitor list")
+    prior_exhibitors = [{"name": n, "prov": "estimated", "year": 2026, "source_url": prior_url,
+                         "basis": "prior_year_exhibitor"}
+                        for n in (prior.get("exhibitors") or []) + [s["name"] for s in prior.get("sponsors") or []]]
+
+    cc = (info.get("country_code") or "").upper()
+    region = "US" if cc == "US" else "EU" if cc in EU_CODES else (seed["region_hint"] if not cc else "OTHER")
+
+    pass_usd, pass_note = to_usd(info.get("pass_price"))
+    booth_usd, booth_note = to_usd(info.get("booth_price"))
+    tr = travel.get(region) or travel["US"]
+    travel_usd = int(tr["per_person_usd"]) * int(tr["default_headcount"])
+    headcount = int(tr["default_headcount"])
+
+    costs = {
+        "pass_price_usd": sourced(pass_usd * headcount if pass_usd is not None else None, "scraped", url, t,
+                                  f"{headcount} passes; {pass_note}".strip("; ")),
+        "booth_price_usd": (sourced(booth_usd, "scraped", url, t, booth_note) if booth_usd is not None else
+                            sourced(BOOTH_DEFAULT_USD.get(region, 15000), "estimated", None, t,
+                                    "not published; team default for a standard booth")),
+        "travel_est_usd": sourced(travel_usd, "estimated", None, t,
+                                  f"travel_estimates.csv: {headcount} x {tr['per_person_usd']}"),
+    }
+    if pass_usd is None:
+        costs["pass_price_usd"] = sourced(1500 * headcount, "estimated", None, t, "price not published; $1,500/pass default")
+
+    print(f"  ✓ {series}: {info.get('start_date')} {info.get('city')} {cc} | "
+          f"{len(sponsors)} sponsors/exhibitors, {len(speakers)} speakers, {len(prior_exhibitors)} prior-yr")
+    return {
+        "event_id": slug(f"{series}-{info.get('edition_year') or 'unknown'}"),
+        "series": series,
+        "name": sourced(info.get("name") or series, "scraped", url, t),
+        "edition_year": info.get("edition_year"),
+        "start_date": sourced(info.get("start_date"), "scraped", url, t),
+        "end_date": sourced(info.get("end_date"), "scraped", url, t),
+        "city": sourced(info.get("city"), "scraped", url, t),
+        "country": sourced(cc or None, "scraped", url, t),
+        "region": region,
+        "url": url,
+        "topics": [x.strip() for x in seed["topics"].split(";") if x.strip()],
+        "costs": costs,
+        "sponsors": sponsors,
+        "exhibitors_prior_year": prior_exhibitors,
+        "speakers": speakers,
+    }
+
+
+def main() -> None:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--limit", type=int, default=0)
+    args = ap.parse_args()
+
+    seeds = list(csv.DictReader(open(DATA / "event_seeds.csv")))
+    if args.limit:
+        seeds = seeds[: args.limit]
+    travel = {r["dest_region"]: r for r in csv.DictReader(open(DATA / "travel_estimates.csv"))}
+
+    def safe(seed):
+        try:
+            return discover_one(seed, travel)
+        except Exception as e:  # one bad site shouldn't sink the run
+            print(f"  ! {seed['series']}: {type(e).__name__}: {e}")
+            return None
+
+    with ThreadPoolExecutor(max_workers=6) as pool:
+        events = [e for e in pool.map(safe, seeds) if e]
+
+    if not events:
+        print("No events scraped; keeping previous cache:", cache.latest() is not None)
+        sys.exit(1)
+    print("Wrote", cache.write(events), f"({len(events)} events)")
+
+
+if __name__ == "__main__":
+    main()
