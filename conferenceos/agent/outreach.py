@@ -14,8 +14,9 @@ Use ONLY the facts given (event, dates, city, and how the account is connected t
 Do not invent names, numbers, customer logos, or meeting slots. Pipeline data is simulated and
 must never appear in the email. Connections ending "(estimated)" with ATTENDS mean the company
 exhibited at the PREVIOUS edition only: do not claim they are attending this year; say they were
-there last year and ask whether they'll be there. "(scraped)" connections are confirmed for this
-edition (e.g. sponsoring, or a named person speaking: mention that person's talk). Return JSON: {"subject": str, "body": str, "owner": "CS"|"Sales",
+there last year and ask whether they'll be there. "(scraped)" connections come from this edition's
+event pages: SPONSORS = sponsoring, EXHIBITS_AT = exhibiting (never call an exhibitor a sponsor),
+SPEAKS_AT = a named person is speaking (mention that person). Return JSON: {"subject": str, "body": str, "owner": "CS"|"Sales",
 "rationale": str}. Body: under 120 words, ends with a request for a 20-minute meeting at the event."""
 
 
@@ -34,10 +35,19 @@ def draft_one(event: dict, account: str, has_open_opp: bool) -> dict:
         messages=[{"role": "system", "content": SYSTEM}, {"role": "user", "content": json.dumps(facts)}],
     )
     out = json.loads(resp.choices[0].message.content)
-    out.update(account=account, evidence=facts["connections"])
+    # owner is decided by our data (open simulated opportunity -> Sales), not by the model
+    out.update(account=account, evidence=facts["connections"], owner=facts["suggested_owner"])
     return out
 
 
 def draft_batch(event: dict, accounts_with_opps: set[str]) -> list[dict]:
+    def safe(a: str) -> dict:
+        try:
+            return draft_one(event, a, a in accounts_with_opps)
+        except Exception as ex:  # one failed account shouldn't discard the whole batch
+            return {"account": a, "subject": "", "body": "", "owner": "Sales" if a in accounts_with_opps else "CS",
+                    "evidence": _evidence_for(a, event["why"]), "error": f"{type(ex).__name__}: {ex}",
+                    "rationale": "Draft failed; write manually or redraft."}
+
     with ThreadPoolExecutor(max_workers=6) as pool:
-        return list(pool.map(lambda a: draft_one(event, a, a in accounts_with_opps), event["accounts"]))
+        return list(pool.map(safe, event["accounts"]))
