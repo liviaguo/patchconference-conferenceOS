@@ -30,8 +30,9 @@ def alias_map(accounts: list[dict]) -> dict[str, str]:
     return m
 
 
-def build(graph, cache_doc: dict) -> dict:
-    accounts = load_accounts()
+def build(graph, cache_doc: dict, accounts: list[dict] | None = None, live: list[dict] | None = None) -> dict:
+    """`accounts` overrides icp_accounts.csv (ICP edited in the app); `live` adds live-scan evidence."""
+    accounts = accounts if accounts is not None else load_accounts()
     aliases = alias_map(accounts)
 
     def ckey(name: str) -> str:
@@ -54,7 +55,7 @@ def build(graph, cache_doc: dict) -> dict:
            MERGE (c:Company {key: a.key})
            SET c:Account, c.name = a.name, c.account_id = a.account_id, c.domain = a.domain,
                c.segment = a.segment, c.tier = toInteger(a.tier), c.hq_region = a.region""",
-        {"rows": [dict(a, key=company_key(a["name"])) for a in accounts]},
+        {"rows": [dict(a, key=company_key(a["name"]), tier=a.get("tier") or 3) for a in accounts]},
     )
 
     opps = list(csv.DictReader(open(DATA / "synthetic" / "pipeline.csv")))
@@ -68,6 +69,15 @@ def build(graph, cache_doc: dict) -> dict:
     )
 
     events, sponsors, attends, speakers, topics = [], [], [], [], []
+    for x in live or []:
+        # Live Bright Data evidence: same edge types as discovery, tagged scraped with its source
+        if x["relation"] in ("sponsor", "exhibitor"):
+            sponsors.append({"event_id": x["event_id"], "key": ckey(x["account"]), "name": x["account"],
+                             "tier": x["relation"], "prov": "scraped", "source_url": x["source_url"]})
+        elif x["relation"] == "speaker" and x.get("person"):
+            speakers.append({"event_id": x["event_id"], "person_id": company_key(x["person"]) + "|" + ckey(x["account"]),
+                             "name": x["person"], "title": "", "company": x["account"], "key": ckey(x["account"]),
+                             "prov": "scraped", "source_url": x["source_url"]})
     for e in cache_doc["events"]:
         c = e["costs"]
         events.append({

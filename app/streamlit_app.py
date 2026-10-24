@@ -12,7 +12,9 @@ import streamlit as st
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from conferenceos import config  # noqa: E402
-from conferenceos.discover import cache  # noqa: E402
+from conferenceos.discover import cache, live_scan  # noqa: E402
+from conferenceos.graph.load import build, load_accounts  # noqa: E402
+from conferenceos import icp_store  # noqa: E402
 from conferenceos.agent.outreach import draft_batch  # noqa: E402
 from conferenceos.approvals import gate  # noqa: E402
 from conferenceos.graph import client  # noqa: E402
@@ -98,12 +100,101 @@ if not regions:
 if date_from > date_to:
     st.warning("'From' date is after 'To' date.")
     st.stop()
+tab_icp, tab_list, tab_why, tab_outreach, tab_approve = st.tabs(
+    ["① ICP & live scan", "② Shortlist", "③ Why", "④ Outreach", "⑤ Approvals"])
+
+# ---------- ICP + live Bright Data scan ----------
+ICP_COLS = ["name", "aliases", "segment", "tier", "region"]
+
+
+def icp_records(df: pd.DataFrame) -> list[dict]:
+    # keep original ids by name so simulated pipeline stays attached to the right company
+    known = {a["name"]: a["account_id"] for a in load_accounts()}
+    df = df.fillna("")
+    recs = []
+    for i, r in enumerate(df.to_dict("records")):
+        if str(r.get("name", "")).strip():
+            name = str(r["name"]).strip()
+            recs.append({"account_id": known.get(name, f"N{i + 1:03d}"), "name": name,
+                         "aliases": str(r.get("aliases") or ""), "domain": "", "segment": str(r.get("segment") or ""),
+                         "tier": int(r.get("tier") or 3), "region": str(r.get("region") or "")})
+    return recs
+
+
+def rebuild(icp: list[dict]) -> dict:
+    stats = build(client.get_graph(), doc, accounts=icp, live=live_scan.load_evidence())
+    icp_store.save(icp)
+    load_scores.clear()
+    return stats
+
+
+with tab_icp:
+    st.subheader("Who are we trying to meet?")
+    st.caption("Edit the ICP target accounts: add a row, change tiers, add aliases (e.g. subsidiaries, `;`-separated). "
+               "Then apply to re-score every event in the graph, or run a live Bright Data scan for fresh evidence.")
+    if "icp_df" not in st.session_state:
+        st.session_state.icp_df = pd.DataFrame(icp_store.load())[ICP_COLS]
+    edited = st.data_editor(
+        st.session_state.icp_df, num_rows="dynamic", use_container_width=True, hide_index=True, key="icp_editor",
+        column_config={
+            "name": st.column_config.TextColumn("Company", required=True),
+            "aliases": st.column_config.TextColumn("Aliases / subsidiaries"),
+            "segment": st.column_config.SelectboxColumn("Segment", options=["pharma", "biotech", "cro", "tools"]),
+            "tier": st.column_config.NumberColumn("Tier", min_value=1, max_value=3, step=1),
+            "region": st.column_config.SelectboxColumn("HQ region", options=["US", "EU"]),
+        })
+    icp = icp_records(edited)
+
+    c1, c2 = st.columns([1, 2])
+    with c1:
+        if st.button(f"Apply ICP ({len(icp)} accounts) & re-score", use_container_width=True):
+            with st.spinner("Rebuilding graph in FalkorDB…"):
+                stats = rebuild(icp)
+            st.session_state.icp_df = edited
+            st.success(f"Graph rebuilt: {stats['accounts']} ICP accounts, {stats['events']} events.")
+    with c2:
+        names = [a["name"] for a in icp]
+        prev_scanned = {x["account"] for x in live_scan.load_evidence()}
+        to_scan = st.multiselect("Accounts to scan live", names,
+                                 default=[n for n in names if n not in prev_scanned][:8] or names[:8])
+
+    if st.button("🔴 Live scan with Bright Data", type="primary", disabled=not to_scan):
+        events_in_scope = doc["events"]
+        found: list[dict] = []
+        with st.status(f"Scanning {len(to_scan)} accounts across {len(events_in_scope)} events via Bright Data SERP…",
+                       expanded=True) as status:
+            for res in live_scan.scan(to_scan, events_in_scope):
+                if res.get("error"):
+                    st.write(f"⚠️ **{res['account']}**: {res['error']}")
+                    continue
+                hits = ", ".join(f"{m['relation']} @ {m['event']}" for m in res["matches"]) or "no verifiable 2027 evidence"
+                st.write(f"{'✅' if res['matches'] else '·'} **{res['account']}**: {res['n_results']} results "
+                         f"in {res['seconds']:.1f}s → {hits}")
+                found += res["matches"]
+            status.update(label=f"Live scan done: {len(found)} verified links. Updating graph…", state="running")
+            evidence = live_scan.load_evidence()
+            seen = {(x["account"], x["event_id"], x["relation"], x["source_url"]) for x in evidence}
+            evidence += [m for m in found if (m["account"], m["event_id"], m["relation"], m["source_url"]) not in seen]
+            live_scan.save_evidence(evidence)
+            rebuild(icp)
+            st.session_state.icp_df = edited
+            status.update(label=f"Live scan done: {len(found)} verified links added to the graph and re-scored.",
+                          state="complete")
+
+    evidence = live_scan.load_evidence()
+    if evidence:
+        st.markdown(f"**Live evidence in graph** ({len(evidence)}): each one quoted verbatim from a Bright Data search result")
+        st.dataframe(pd.DataFrame([{
+            "Account": x["account"], "Event": x["event"], "Link": x["relation"], "Person": x.get("person") or "",
+            "Quote": x["quote"], "Source": x["source_url"], "Fetched": x["fetched_at"],
+        } for x in evidence]), hide_index=True, use_container_width=True,
+            column_config={"Source": st.column_config.LinkColumn("Source")})
+
 rows = load_scores(tuple(regions), date_from, date_to)
 if not rows:
-    st.warning("No events in this window/region.")
+    with tab_list:
+        st.warning("No events in this window/region.")
     st.stop()
-
-tab_list, tab_why, tab_outreach, tab_approve = st.tabs(["Shortlist", "Why", "Outreach", "Approvals"])
 
 # ---------- shortlist ----------
 with tab_list:
