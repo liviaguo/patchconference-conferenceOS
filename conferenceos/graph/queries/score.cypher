@@ -8,7 +8,9 @@ WHERE r.code IN $regions AND e.start_date >= $from AND e.start_date <= $to
 OPTIONAL MATCH (a1:Account)-[d:SPONSORS|ATTENDS]->(e)
 WITH e, r, total_icp,
      collect({acct: a1.name, prov: d.prov,
-              path: a1.name + ' -[' + type(d) + ']-> ' + e.name}) AS direct
+              path: a1.name + CASE WHEN d.as_name IS NULL OR toLower(d.as_name) STARTS WITH toLower(a1.name)
+                                   THEN '' ELSE ' (as ' + d.as_name + ')' END
+                    + ' -[' + type(d) + ']-> ' + e.name}) AS direct
 
 // hop 2: someone from the account speaks
 OPTIONAL MATCH (a2:Account)<-[:WORKS_AT]-(p:Person)-[s:SPEAKS_AT]->(e)

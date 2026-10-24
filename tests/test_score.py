@@ -63,7 +63,7 @@ def test_ranking_and_paths(graph):
     assert top["cost"] == 20000
     assert top["reached_per_10k"] == pytest.approx(1.5)
     assert any("SPEAKS_AT" in w and "Jane Doe" in w for w in top["why"])
-    assert any(w.startswith("Roche -[ATTENDS]->") and "(estimated)" in w for w in top["why"])
+    assert any(w.startswith("Roche (as Genentech) -[ATTENDS]->") and "(estimated)" in w for w in top["why"])
 
     assert rows[1]["accounts_present"] == 2
     assert rows[1]["reached_per_10k"] == pytest.approx(0.5)

@@ -1,0 +1,2991 @@
+{
+  "fetched_at": "2026-10-24T22:15:42+00:00",
+  "source": "brightdata+enrich",
+  "events": [
+    {
+      "event_id": "bio-it-world-conference-expo-2027",
+      "series": "Bio-IT World Conference & Expo",
+      "name": {
+        "value": "Bio-IT World Conference & Expo",
+        "prov": "scraped",
+        "source_url": "https://www.bio-itworldexpo.com/",
+        "fetched_at": "2026-10-24T22:05:43+00:00",
+        "note": ""
+      },
+      "edition_year": 2027,
+      "start_date": {
+        "value": "2027-05-18",
+        "prov": "scraped",
+        "source_url": "https://www.bio-itworldexpo.com/",
+        "fetched_at": "2026-10-24T22:05:43+00:00",
+        "note": ""
+      },
+      "end_date": {
+        "value": "2027-05-20",
+        "prov": "scraped",
+        "source_url": "https://www.bio-itworldexpo.com/",
+        "fetched_at": "2026-10-24T22:05:43+00:00",
+        "note": ""
+      },
+      "city": {
+        "value": "Boston",
+        "prov": "scraped",
+        "source_url": "https://www.bio-itworldexpo.com/",
+        "fetched_at": "2026-10-24T22:05:43+00:00",
+        "note": ""
+      },
+      "country": {
+        "value": "US",
+        "prov": "scraped",
+        "source_url": "https://www.bio-itworldexpo.com/",
+        "fetched_at": "2026-10-24T22:05:43+00:00",
+        "note": ""
+      },
+      "region": "US",
+      "url": "https://www.bio-itworldexpo.com/",
+      "topics": [
+        "lab informatics",
+        "AI in drug discovery"
+      ],
+      "costs": {
+        "pass_price_usd": {
+          "value": 4500,
+          "prov": "estimated",
+          "source_url": null,
+          "fetched_at": "2026-10-24T22:05:43+00:00",
+          "note": "price not published; $1,500/pass default"
+        },
+        "booth_price_usd": {
+          "value": 15000,
+          "prov": "estimated",
+          "source_url": null,
+          "fetched_at": "2026-10-24T22:05:43+00:00",
+          "note": "not published; team default for a standard booth"
+        },
+        "travel_est_usd": {
+          "value": 5400,
+          "prov": "estimated",
+          "source_url": null,
+          "fetched_at": "2026-10-24T22:05:43+00:00",
+          "note": "travel_estimates.csv: 3 x 1800"
+        }
+      },
+      "sponsors": [
+        {
+          "name": "Dotmatics",
+          "tier": null,
+          "prov": "scraped",
+          "year": 2027,
+          "source_url": "https://www.bio-itworldexpo.com/"
+        },
+        {
+          "name": "Revvity_Signals",
+          "tier": null,
+          "prov": "scraped",
+          "year": 2027,
+          "source_url": "https://www.bio-itworldexpo.com/"
+        }
+      ],
+      "exhibitors_prior_year": [],
+      "speakers": [
+        {
+          "name": "Mohammed AlQuraishi, PhD",
+          "title": null,
+          "company": "Columbia University",
+          "prov": "scraped",
+          "source_url": "https://www.bio-itworldexpo.com/"
+        },
+        {
+          "name": "Jonathan B. Gilbert, PhD",
+          "title": null,
+          "company": "Eli Lilly and Company",
+          "prov": "scraped",
+          "source_url": "https://www.bio-itworldexpo.com/"
+        },
+        {
+          "name": "Jos\u00e9-Tom\u00e1s Prieto, PhD",
+          "title": null,
+          "company": "Apheris",
+          "prov": "scraped",
+          "source_url": "https://www.bio-itworldexpo.com/"
+        },
+        {
+          "name": "Woody Sherman, PhD",
+          "title": null,
+          "company": "Psivant Therapeutics",
+          "prov": "scraped",
+          "source_url": "https://www.bio-itworldexpo.com/"
+        },
+        {
+          "name": "Christina Taylor, PhD",
+          "title": null,
+          "company": "Bayer",
+          "prov": "scraped",
+          "source_url": "https://www.bio-itworldexpo.com/"
+        },
+        {
+          "name": "Jos\u00e9 Duca, PhD",
+          "title": null,
+          "company": "Novartis Institutes for Biomedical Research, Inc.",
+          "prov": "scraped",
+          "source_url": "https://www.bio-itworldexpo.com/"
+        },
+        {
+          "name": "Catherine Brownstein, PhD",
+          "title": null,
+          "company": "Boston Children's Hospital; Harvard Medical School",
+          "prov": "scraped",
+          "source_url": "https://www.bio-itworldexpo.com/"
+        },
+        {
+          "name": "Thomas Bartlett",
+          "title": null,
+          "company": "Amgen",
+          "prov": "scraped",
+          "source_url": "https://www.bio-itworldexpo.com/"
+        }
+      ]
+    },
+    {
+      "event_id": "bio-europe-spring-2027",
+      "series": "BIO-Europe Spring",
+      "name": {
+        "value": "BIO-Europe Spring 2027",
+        "prov": "scraped",
+        "source_url": "https://www.s-ge.com/export/de/veranstaltungen/swiss-pavilion/bio-europe-spring-2027",
+        "fetched_at": "2026-10-24T22:05:48+00:00",
+        "note": ""
+      },
+      "edition_year": 2027,
+      "start_date": {
+        "value": "2027-04-05",
+        "prov": "scraped",
+        "source_url": "https://www.s-ge.com/export/de/veranstaltungen/swiss-pavilion/bio-europe-spring-2027",
+        "fetched_at": "2026-10-24T22:05:48+00:00",
+        "note": ""
+      },
+      "end_date": {
+        "value": "2027-04-07",
+        "prov": "scraped",
+        "source_url": "https://www.s-ge.com/export/de/veranstaltungen/swiss-pavilion/bio-europe-spring-2027",
+        "fetched_at": "2026-10-24T22:05:48+00:00",
+        "note": ""
+      },
+      "city": {
+        "value": "Lyon",
+        "prov": "scraped",
+        "source_url": "https://www.s-ge.com/export/de/veranstaltungen/swiss-pavilion/bio-europe-spring-2027",
+        "fetched_at": "2026-10-24T22:05:48+00:00",
+        "note": ""
+      },
+      "country": {
+        "value": "FR",
+        "prov": "scraped",
+        "source_url": "https://www.s-ge.com/export/de/veranstaltungen/swiss-pavilion/bio-europe-spring-2027",
+        "fetched_at": "2026-10-24T22:05:48+00:00",
+        "note": ""
+      },
+      "region": "EU",
+      "url": "https://www.s-ge.com/export/de/veranstaltungen/swiss-pavilion/bio-europe-spring-2027",
+      "topics": [
+        "biopharma partnering"
+      ],
+      "costs": {
+        "pass_price_usd": {
+          "value": 4500,
+          "prov": "estimated",
+          "source_url": null,
+          "fetched_at": "2026-10-24T22:05:48+00:00",
+          "note": "price not published; $1,500/pass default"
+        },
+        "booth_price_usd": {
+          "value": 6667,
+          "prov": "scraped",
+          "source_url": "https://www.s-ge.com/export/de/veranstaltungen/swiss-pavilion/bio-europe-spring-2027",
+          "fetched_at": "2026-10-24T22:05:48+00:00",
+          "note": "Booth Package for SBA/S-GE members; 5900 CHF converted at 1.13"
+        },
+        "travel_est_usd": {
+          "value": 9600,
+          "prov": "estimated",
+          "source_url": null,
+          "fetched_at": "2026-10-24T22:05:48+00:00",
+          "note": "travel_estimates.csv: 3 x 3200"
+        }
+      },
+      "sponsors": [],
+      "exhibitors_prior_year": [
+        {
+          "name": "Actinium Pharmaceuticals",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Alphabiome AI",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Alfa Laval",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Almirall",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Atrogi",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Alphyn Biologics",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Anima Biotech",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Apobec Discopvery",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "arterioscope FlexCo",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Arivin therapeutics",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Auxilius Pharma S.A.",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Aptevo Therapeutics Inc.",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Avata Biosciences",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "BIMINI Biotech",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Beijing Sungen Biomedical Technology Co., Ltd.",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Beat Therapeutics",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Baio Labs",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "biorevert inc.",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Cogitars UK",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Canton Biologics",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "CervoMed, Inc.",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "CURLIM",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Divamics Inc.",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "EG 427",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Evogene",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Evox Therapeutics",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Huasai BioMed Inc. Lmt.",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "HyQure BioTech Co., Ltd",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Ikarovec Ltd",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Immuneering Corporation",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "ISOBiotech",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Johnson & Johnson Innovation",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Kaass Discovery",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Kihealth Inc.",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Lario Therapeutics Limited",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "LimmaTech Biologics AG",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Lytix Biopharmaceuticals, Inc.",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Maxion Therapeutics",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Metatissue",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Menten AI, Inc.",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Merck KGaA",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "MHCombiotic",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "MICROVIABLE THERAPEUTICS SL",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "myBIOS GmbH",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "MgShell",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "MindLab",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Molecular You",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "NanoSyrinx Ltd",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Neurizon Therapeutics",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Neurenati Therapeutics Inc",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "NeuroSoV",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Nionyx Bio",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Oncovita",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Oxford BioTherapeutics",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Oncotelic Therapeutics",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Ophidion, Inc.",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "OGD2 Pharma",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Phanes Therapeutics, Inc.",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Presicion Neuromed",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Pikralida",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Psyomics",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "QPMind LLC",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "QBiotics Group",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Rakuten Medical",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Rejuvenate Biomed",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Redwood AI",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Red Ace Bio",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Sanofi",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "SapiensBio",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "SeaBeLife Biotech",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "SMIN Therapeutics GmbH",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Shaperon Inc.",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "STALICLA SA",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "StimOxyGen",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "SonoTarg Ltd",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Synact Pharma",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Tarian Pharma",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "TargTex S.A.",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "TaBriX ltd.",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Tonix Pharmaceuticals Holding Corp.",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Treos Bio",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Vesper Bio",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Ymmunobio AG",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "7 Hills Pharma Inc",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://informaconnect.com/bioeurope-spring/2026-presenting-companies/",
+          "basis": "prior_year_exhibitor"
+        }
+      ],
+      "speakers": []
+    },
+    {
+      "event_id": "pittcon-2027",
+      "series": "Pittcon",
+      "name": {
+        "value": "Pittcon Conference + Expo",
+        "prov": "scraped",
+        "source_url": "https://pittcon.org/pittcon-2027/",
+        "fetched_at": "2026-10-24T22:05:30+00:00",
+        "note": ""
+      },
+      "edition_year": 2027,
+      "start_date": {
+        "value": "2027-04-24",
+        "prov": "scraped",
+        "source_url": "https://pittcon.org/pittcon-2027/",
+        "fetched_at": "2026-10-24T22:05:30+00:00",
+        "note": ""
+      },
+      "end_date": {
+        "value": "2027-04-28",
+        "prov": "scraped",
+        "source_url": "https://pittcon.org/pittcon-2027/",
+        "fetched_at": "2026-10-24T22:05:30+00:00",
+        "note": ""
+      },
+      "city": {
+        "value": "Pittsburgh",
+        "prov": "scraped",
+        "source_url": "https://pittcon.org/pittcon-2027/",
+        "fetched_at": "2026-10-24T22:05:30+00:00",
+        "note": ""
+      },
+      "country": {
+        "value": "US",
+        "prov": "scraped",
+        "source_url": "https://pittcon.org/pittcon-2027/",
+        "fetched_at": "2026-10-24T22:05:30+00:00",
+        "note": ""
+      },
+      "region": "US",
+      "url": "https://pittcon.org/pittcon-2027/",
+      "topics": [
+        "analytical chemistry",
+        "lab informatics"
+      ],
+      "costs": {
+        "pass_price_usd": {
+          "value": 4500,
+          "prov": "estimated",
+          "source_url": null,
+          "fetched_at": "2026-10-24T22:05:30+00:00",
+          "note": "price not published; $1,500/pass default"
+        },
+        "booth_price_usd": {
+          "value": 15000,
+          "prov": "estimated",
+          "source_url": null,
+          "fetched_at": "2026-10-24T22:05:30+00:00",
+          "note": "not published; team default for a standard booth"
+        },
+        "travel_est_usd": {
+          "value": 5400,
+          "prov": "estimated",
+          "source_url": null,
+          "fetched_at": "2026-10-24T22:05:30+00:00",
+          "note": "travel_estimates.csv: 3 x 1800"
+        }
+      },
+      "sponsors": [],
+      "exhibitors_prior_year": [
+        {
+          "name": "Agilent",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://www.rdworldonline.com/pittcon-2026-guide-to-exhibitors-launches-and-key-trends/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Anton Paar USA",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://www.rdworldonline.com/pittcon-2026-guide-to-exhibitors-launches-and-key-trends/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Bruker",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://www.rdworldonline.com/pittcon-2026-guide-to-exhibitors-launches-and-key-trends/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Confience",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://www.rdworldonline.com/pittcon-2026-guide-to-exhibitors-launches-and-key-trends/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "LabVantage Solutions, Inc.",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://www.rdworldonline.com/pittcon-2026-guide-to-exhibitors-launches-and-key-trends/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "LabWare, Inc.",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://www.rdworldonline.com/pittcon-2026-guide-to-exhibitors-launches-and-key-trends/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Labbit",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://www.rdworldonline.com/pittcon-2026-guide-to-exhibitors-launches-and-key-trends/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Metrohm USA",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://www.rdworldonline.com/pittcon-2026-guide-to-exhibitors-launches-and-key-trends/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Restek Corporation",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://www.rdworldonline.com/pittcon-2026-guide-to-exhibitors-launches-and-key-trends/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Shimadzu Scientific Instruments, Inc.",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://www.rdworldonline.com/pittcon-2026-guide-to-exhibitors-launches-and-key-trends/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "TA Instruments / Waters Materials Sciences",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://www.rdworldonline.com/pittcon-2026-guide-to-exhibitors-launches-and-key-trends/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Thermo Fisher Scientific",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://www.rdworldonline.com/pittcon-2026-guide-to-exhibitors-launches-and-key-trends/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Velaris",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://www.rdworldonline.com/pittcon-2026-guide-to-exhibitors-launches-and-key-trends/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Xylem Lab Solutions",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://www.rdworldonline.com/pittcon-2026-guide-to-exhibitors-launches-and-key-trends/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Hamamatsu Corporation",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://www.rdworldonline.com/pittcon-2026-guide-to-exhibitors-launches-and-key-trends/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Hamilton Company",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://www.rdworldonline.com/pittcon-2026-guide-to-exhibitors-launches-and-key-trends/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "JEOL USA, Inc",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://www.rdworldonline.com/pittcon-2026-guide-to-exhibitors-launches-and-key-trends/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Malvern Panalytical",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://www.rdworldonline.com/pittcon-2026-guide-to-exhibitors-launches-and-key-trends/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "CEM Corporation",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://www.rdworldonline.com/pittcon-2026-guide-to-exhibitors-launches-and-key-trends/",
+          "basis": "prior_year_exhibitor"
+        }
+      ],
+      "speakers": []
+    },
+    {
+      "event_id": "pegs-boston-2027",
+      "series": "PEGS Boston",
+      "name": {
+        "value": "PEGS Summit 2027 Boston",
+        "prov": "scraped",
+        "source_url": "https://www.mass-spec-capital.com/product/pegs-summit-2027-boston-cambridge-healthtech-institute-chi-2001-34403.html",
+        "fetched_at": "2026-10-24T22:05:36+00:00",
+        "note": ""
+      },
+      "edition_year": 2027,
+      "start_date": {
+        "value": "2027-05-01",
+        "prov": "scraped",
+        "source_url": "https://www.mass-spec-capital.com/product/pegs-summit-2027-boston-cambridge-healthtech-institute-chi-2001-34403.html",
+        "fetched_at": "2026-10-24T22:05:36+00:00",
+        "note": ""
+      },
+      "end_date": {
+        "value": null,
+        "prov": "scraped",
+        "source_url": "https://www.mass-spec-capital.com/product/pegs-summit-2027-boston-cambridge-healthtech-institute-chi-2001-34403.html",
+        "fetched_at": "2026-10-24T22:05:36+00:00",
+        "note": ""
+      },
+      "city": {
+        "value": "Boston",
+        "prov": "scraped",
+        "source_url": "https://www.mass-spec-capital.com/product/pegs-summit-2027-boston-cambridge-healthtech-institute-chi-2001-34403.html",
+        "fetched_at": "2026-10-24T22:05:36+00:00",
+        "note": ""
+      },
+      "country": {
+        "value": "US",
+        "prov": "scraped",
+        "source_url": "https://www.mass-spec-capital.com/product/pegs-summit-2027-boston-cambridge-healthtech-institute-chi-2001-34403.html",
+        "fetched_at": "2026-10-24T22:05:36+00:00",
+        "note": ""
+      },
+      "region": "US",
+      "url": "https://www.mass-spec-capital.com/product/pegs-summit-2027-boston-cambridge-healthtech-institute-chi-2001-34403.html",
+      "topics": [
+        "biologics",
+        "protein engineering"
+      ],
+      "costs": {
+        "pass_price_usd": {
+          "value": 4500,
+          "prov": "estimated",
+          "source_url": null,
+          "fetched_at": "2026-10-24T22:05:36+00:00",
+          "note": "price not published; $1,500/pass default"
+        },
+        "booth_price_usd": {
+          "value": 15000,
+          "prov": "estimated",
+          "source_url": null,
+          "fetched_at": "2026-10-24T22:05:36+00:00",
+          "note": "not published; team default for a standard booth"
+        },
+        "travel_est_usd": {
+          "value": 5400,
+          "prov": "estimated",
+          "source_url": null,
+          "fetched_at": "2026-10-24T22:05:36+00:00",
+          "note": "travel_estimates.csv: 3 x 1800"
+        }
+      },
+      "sponsors": [
+        {
+          "name": "A-Alpha_Bio",
+          "tier": null,
+          "prov": "scraped",
+          "year": 2027,
+          "source_url": "https://www.pegsummit.com/pegs-ai"
+        },
+        {
+          "name": "TWIST-Bioscience",
+          "tier": null,
+          "prov": "scraped",
+          "year": 2027,
+          "source_url": "https://www.pegsummit.com/pegs-ai"
+        }
+      ],
+      "exhibitors_prior_year": [
+        {
+          "name": "Biointron",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://www.pegsummit.com/attendees",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "FairJourneyBio",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://www.pegsummit.com/attendees",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "GenScript",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://www.pegsummit.com/attendees",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Kactus",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://www.pegsummit.com/attendees",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Nona Biosciences",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://www.pegsummit.com/attendees",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Nuclera",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://www.pegsummit.com/attendees",
+          "basis": "prior_year_exhibitor"
+        }
+      ],
+      "speakers": [
+        {
+          "name": "Kristine Deibler, PhD",
+          "title": "Director, Molecular Artificial Intelligence",
+          "company": "Novo Nordisk",
+          "prov": "scraped",
+          "source_url": "https://www.pegsummit.com/pegs-ai"
+        },
+        {
+          "name": "Vanessa Braunstein",
+          "title": "Senior Director, TuneLab AI Drug Discovery Platform",
+          "company": "Eli Lilly and Company",
+          "prov": "scraped",
+          "source_url": "https://www.pegsummit.com/pegs-ai"
+        },
+        {
+          "name": "Gevorg Grigoryan, PhD",
+          "title": "Co-Founder & CTO",
+          "company": "Generate Biomedicines",
+          "prov": "scraped",
+          "source_url": "https://www.pegsummit.com/pegs-ai"
+        },
+        {
+          "name": "Samuel Stanton, PhD",
+          "title": "Member, Technical Staff",
+          "company": "Anthropic",
+          "prov": "scraped",
+          "source_url": "https://www.pegsummit.com/pegs-ai"
+        },
+        {
+          "name": "Sergey Ovchinnikov, PhD",
+          "title": "Helen and Irwin Sizer Career Development Professor, Department of Biology",
+          "company": "Massachusetts Institute of Technology",
+          "prov": "scraped",
+          "source_url": "https://www.pegsummit.com/pegs-ai"
+        },
+        {
+          "name": "Jeffrey Gray, PhD",
+          "title": "Professor, Chemical & Biomolecular Engineering",
+          "company": "Johns Hopkins University",
+          "prov": "scraped",
+          "source_url": "https://www.pegsummit.com/pegs-ai"
+        }
+      ]
+    },
+    {
+      "event_id": "asgct-annual-meeting-2027",
+      "series": "ASGCT Annual Meeting",
+      "name": {
+        "value": "2027 Annual Meeting",
+        "prov": "scraped",
+        "source_url": "https://www.asgct.org/events-meetings/2027-annual-meeting",
+        "fetched_at": "2026-10-24T22:06:31+00:00",
+        "note": ""
+      },
+      "edition_year": 2027,
+      "start_date": {
+        "value": "2027-05-03",
+        "prov": "scraped",
+        "source_url": "https://www.asgct.org/events-meetings/2027-annual-meeting",
+        "fetched_at": "2026-10-24T22:06:31+00:00",
+        "note": ""
+      },
+      "end_date": {
+        "value": "2027-05-07",
+        "prov": "scraped",
+        "source_url": "https://www.asgct.org/events-meetings/2027-annual-meeting",
+        "fetched_at": "2026-10-24T22:06:31+00:00",
+        "note": ""
+      },
+      "city": {
+        "value": "Philadelphia",
+        "prov": "scraped",
+        "source_url": "https://www.asgct.org/events-meetings/2027-annual-meeting",
+        "fetched_at": "2026-10-24T22:06:31+00:00",
+        "note": ""
+      },
+      "country": {
+        "value": "US",
+        "prov": "scraped",
+        "source_url": "https://www.asgct.org/events-meetings/2027-annual-meeting",
+        "fetched_at": "2026-10-24T22:06:31+00:00",
+        "note": ""
+      },
+      "region": "US",
+      "url": "https://www.asgct.org/events-meetings/2027-annual-meeting",
+      "topics": [
+        "cell and gene therapy"
+      ],
+      "costs": {
+        "pass_price_usd": {
+          "value": 4500,
+          "prov": "estimated",
+          "source_url": null,
+          "fetched_at": "2026-10-24T22:06:31+00:00",
+          "note": "price not published; $1,500/pass default"
+        },
+        "booth_price_usd": {
+          "value": 15000,
+          "prov": "estimated",
+          "source_url": null,
+          "fetched_at": "2026-10-24T22:06:31+00:00",
+          "note": "not published; team default for a standard booth"
+        },
+        "travel_est_usd": {
+          "value": 5400,
+          "prov": "estimated",
+          "source_url": null,
+          "fetched_at": "2026-10-24T22:06:31+00:00",
+          "note": "travel_estimates.csv: 3 x 1800"
+        }
+      },
+      "sponsors": [],
+      "exhibitors_prior_year": [],
+      "speakers": []
+    },
+    {
+      "event_id": "festival-of-genomics-2027",
+      "series": "Festival of Genomics",
+      "name": {
+        "value": "Festival of Genomics 2027",
+        "prov": "scraped",
+        "source_url": "https://www.vdura.com/ai-infrastructure-events-calendar/festival-of-genomics-2027/",
+        "fetched_at": "2026-10-24T22:06:12+00:00",
+        "note": ""
+      },
+      "edition_year": 2027,
+      "start_date": {
+        "value": "2027-01-27",
+        "prov": "scraped",
+        "source_url": "https://www.vdura.com/ai-infrastructure-events-calendar/festival-of-genomics-2027/",
+        "fetched_at": "2026-10-24T22:06:12+00:00",
+        "note": ""
+      },
+      "end_date": {
+        "value": "2027-01-28",
+        "prov": "scraped",
+        "source_url": "https://www.vdura.com/ai-infrastructure-events-calendar/festival-of-genomics-2027/",
+        "fetched_at": "2026-10-24T22:06:12+00:00",
+        "note": ""
+      },
+      "city": {
+        "value": "London",
+        "prov": "scraped",
+        "source_url": "https://www.vdura.com/ai-infrastructure-events-calendar/festival-of-genomics-2027/",
+        "fetched_at": "2026-10-24T22:06:12+00:00",
+        "note": ""
+      },
+      "country": {
+        "value": "GB",
+        "prov": "scraped",
+        "source_url": "https://www.vdura.com/ai-infrastructure-events-calendar/festival-of-genomics-2027/",
+        "fetched_at": "2026-10-24T22:06:12+00:00",
+        "note": ""
+      },
+      "region": "EU",
+      "url": "https://www.vdura.com/ai-infrastructure-events-calendar/festival-of-genomics-2027/",
+      "topics": [
+        "genomics"
+      ],
+      "costs": {
+        "pass_price_usd": {
+          "value": 4500,
+          "prov": "estimated",
+          "source_url": null,
+          "fetched_at": "2026-10-24T22:06:12+00:00",
+          "note": "price not published; $1,500/pass default"
+        },
+        "booth_price_usd": {
+          "value": 13000,
+          "prov": "estimated",
+          "source_url": null,
+          "fetched_at": "2026-10-24T22:06:12+00:00",
+          "note": "not published; team default for a standard booth"
+        },
+        "travel_est_usd": {
+          "value": 9600,
+          "prov": "estimated",
+          "source_url": null,
+          "fetched_at": "2026-10-24T22:06:12+00:00",
+          "note": "travel_estimates.csv: 3 x 3200"
+        }
+      },
+      "sponsors": [],
+      "exhibitors_prior_year": [],
+      "speakers": [
+        {
+          "name": "Sir Rory Collins",
+          "title": "Chief Executive & Principal Investigator",
+          "company": "UK Biobank",
+          "prov": "scraped",
+          "source_url": "https://festivalofgenomics.com/london/explore-16-theatres/biodata-stage"
+        },
+        {
+          "name": "Serena Scollen",
+          "title": "Head of Human Genomics and Translational Data",
+          "company": "ELIXIR",
+          "prov": "scraped",
+          "source_url": "https://festivalofgenomics.com/london/explore-16-theatres/biodata-stage"
+        },
+        {
+          "name": "Sam Jackson",
+          "title": "Programme Manager for Human Genomics & Translational Data",
+          "company": "Elixir Europe",
+          "prov": "scraped",
+          "source_url": "https://festivalofgenomics.com/london/explore-16-theatres/biodata-stage"
+        },
+        {
+          "name": "Augusto Rendon",
+          "title": "Chief Bioinformatician",
+          "company": "Genomics England",
+          "prov": "scraped",
+          "source_url": "https://festivalofgenomics.com/london/explore-16-theatres/biodata-stage"
+        },
+        {
+          "name": "Nathalie Kingston",
+          "title": "Director",
+          "company": "NIHR BioResource",
+          "prov": "scraped",
+          "source_url": "https://festivalofgenomics.com/london/explore-16-theatres/biodata-stage"
+        },
+        {
+          "name": "Adam Steventon",
+          "title": "Chief Data Officer",
+          "company": "Our Future Health",
+          "prov": "scraped",
+          "source_url": "https://festivalofgenomics.com/london/explore-16-theatres/biodata-stage"
+        },
+        {
+          "name": "Peter Harrison",
+          "title": "Interim Chief Technology Officer",
+          "company": "HDRUK",
+          "prov": "scraped",
+          "source_url": "https://festivalofgenomics.com/london/explore-16-theatres/biodata-stage"
+        },
+        {
+          "name": "Robin Flaig",
+          "title": "Co-Director, UK Longitudinal Linkage Collaboration & COO",
+          "company": "Generation Scotland, The University of Edinburgh",
+          "prov": "scraped",
+          "source_url": "https://festivalofgenomics.com/london/explore-16-theatres/biodata-stage"
+        },
+        {
+          "name": "Emily Jefferson",
+          "title": "Director and Strategic Advisor (Technology)",
+          "company": "DARE UK & HDR UK",
+          "prov": "scraped",
+          "source_url": "https://festivalofgenomics.com/london/explore-16-theatres/biodata-stage"
+        },
+        {
+          "name": "Aarno Palotie",
+          "title": "Director of FinnGen and Professor",
+          "company": "University of Helsinki",
+          "prov": "scraped",
+          "source_url": "https://festivalofgenomics.com/london/explore-16-theatres/biodata-stage"
+        },
+        {
+          "name": "Amy Jayne McKnight",
+          "title": "Professor of Molecular Epidemiology & Public Health",
+          "company": "Queen's University Belfast",
+          "prov": "scraped",
+          "source_url": "https://festivalofgenomics.com/london/explore-16-theatres/biodata-stage"
+        },
+        {
+          "name": "Sergii Strelchuk",
+          "title": "Associate Professor of Computer Science",
+          "company": "University of Oxford",
+          "prov": "scraped",
+          "source_url": "https://festivalofgenomics.com/london/explore-16-theatres/biodata-stage"
+        },
+        {
+          "name": "Katie Wilde",
+          "title": "HDRUK Scotland Co-Director",
+          "company": "University of Aberdeen",
+          "prov": "scraped",
+          "source_url": "https://festivalofgenomics.com/london/explore-16-theatres/biodata-stage"
+        },
+        {
+          "name": "Gaia Cantelli",
+          "title": "Director of NURTuRE",
+          "company": "Kidney Research UK",
+          "prov": "scraped",
+          "source_url": "https://festivalofgenomics.com/london/explore-16-theatres/biodata-stage"
+        },
+        {
+          "name": "Jemma Hopewell",
+          "title": "Professor of Precision Medicine & Epidemiology",
+          "company": "University of Oxford",
+          "prov": "scraped",
+          "source_url": "https://festivalofgenomics.com/london/explore-16-theatres/biodata-stage"
+        }
+      ]
+    },
+    {
+      "event_id": "slas-international-conference-2027",
+      "series": "SLAS International Conference",
+      "name": {
+        "value": "SLAS2027 International Conference & Exhibition",
+        "prov": "scraped",
+        "source_url": "https://www.slas.org/events-calendar/slas2027-international-conference-exhibition/",
+        "fetched_at": "2026-10-24T22:08:39+00:00",
+        "note": ""
+      },
+      "edition_year": 2027,
+      "start_date": {
+        "value": "2027-01-30",
+        "prov": "scraped",
+        "source_url": "https://www.slas.org/events-calendar/slas2027-international-conference-exhibition/",
+        "fetched_at": "2026-10-24T22:08:39+00:00",
+        "note": ""
+      },
+      "end_date": {
+        "value": "2027-02-03",
+        "prov": "scraped",
+        "source_url": "https://www.slas.org/events-calendar/slas2027-international-conference-exhibition/",
+        "fetched_at": "2026-10-24T22:08:39+00:00",
+        "note": ""
+      },
+      "city": {
+        "value": "San Diego",
+        "prov": "scraped",
+        "source_url": "https://www.slas.org/events-calendar/slas2027-international-conference-exhibition/",
+        "fetched_at": "2026-10-24T22:08:39+00:00",
+        "note": ""
+      },
+      "country": {
+        "value": "US",
+        "prov": "scraped",
+        "source_url": "https://www.slas.org/events-calendar/slas2027-international-conference-exhibition/",
+        "fetched_at": "2026-10-24T22:08:39+00:00",
+        "note": ""
+      },
+      "region": "US",
+      "url": "https://www.slas.org/events-calendar/slas2027-international-conference-exhibition/",
+      "topics": [
+        "lab automation",
+        "lab informatics"
+      ],
+      "costs": {
+        "pass_price_usd": {
+          "value": 4500,
+          "prov": "estimated",
+          "source_url": null,
+          "fetched_at": "2026-10-24T22:08:39+00:00",
+          "note": "price not published; $1,500/pass default"
+        },
+        "booth_price_usd": {
+          "value": 15000,
+          "prov": "estimated",
+          "source_url": null,
+          "fetched_at": "2026-10-24T22:08:39+00:00",
+          "note": "not published; team default for a standard booth"
+        },
+        "travel_est_usd": {
+          "value": 5400,
+          "prov": "estimated",
+          "source_url": null,
+          "fetched_at": "2026-10-24T22:08:39+00:00",
+          "note": "travel_estimates.csv: 3 x 1800"
+        }
+      },
+      "sponsors": [
+        {
+          "name": "Hamilton",
+          "tier": "PREMIER",
+          "prov": "scraped",
+          "year": 2027,
+          "source_url": "https://www.slas.org/events-calendar/slas2027-international-conference-exhibition/"
+        },
+        {
+          "name": "Galatek",
+          "tier": "DIAMOND",
+          "prov": "scraped",
+          "year": 2027,
+          "source_url": "https://www.slas.org/events-calendar/slas2027-international-conference-exhibition/"
+        },
+        {
+          "name": "HighRes Biosolutions",
+          "tier": "DIAMOND",
+          "prov": "scraped",
+          "year": 2027,
+          "source_url": "https://www.slas.org/events-calendar/slas2027-international-conference-exhibition/"
+        },
+        {
+          "name": "LABMAN",
+          "tier": "DIAMOND",
+          "prov": "scraped",
+          "year": 2027,
+          "source_url": "https://www.slas.org/events-calendar/slas2027-international-conference-exhibition/"
+        },
+        {
+          "name": "Scinomix",
+          "tier": "DIAMOND",
+          "prov": "scraped",
+          "year": 2027,
+          "source_url": "https://www.slas.org/events-calendar/slas2027-international-conference-exhibition/"
+        },
+        {
+          "name": "ThermoFisher Scientific",
+          "tier": "DIAMOND",
+          "prov": "scraped",
+          "year": 2027,
+          "source_url": "https://www.slas.org/events-calendar/slas2027-international-conference-exhibition/"
+        },
+        {
+          "name": "Azenta",
+          "tier": "PLATINUM",
+          "prov": "scraped",
+          "year": 2027,
+          "source_url": "https://www.slas.org/events-calendar/slas2027-international-conference-exhibition/"
+        },
+        {
+          "name": "Agilent",
+          "tier": "GOLD",
+          "prov": "scraped",
+          "year": 2027,
+          "source_url": "https://www.slas.org/events-calendar/slas2027-international-conference-exhibition/"
+        },
+        {
+          "name": "Biosero",
+          "tier": "GOLD",
+          "prov": "scraped",
+          "year": 2027,
+          "source_url": "https://www.slas.org/events-calendar/slas2027-international-conference-exhibition/"
+        },
+        {
+          "name": "Curiox",
+          "tier": "GOLD",
+          "prov": "scraped",
+          "year": 2027,
+          "source_url": "https://www.slas.org/events-calendar/slas2027-international-conference-exhibition/"
+        },
+        {
+          "name": "Opentrons",
+          "tier": "GOLD",
+          "prov": "scraped",
+          "year": 2027,
+          "source_url": "https://www.slas.org/events-calendar/slas2027-international-conference-exhibition/"
+        },
+        {
+          "name": "Peapod",
+          "tier": "GOLD",
+          "prov": "scraped",
+          "year": 2027,
+          "source_url": "https://www.slas.org/events-calendar/slas2027-international-conference-exhibition/"
+        },
+        {
+          "name": "Revvity",
+          "tier": "GOLD",
+          "prov": "scraped",
+          "year": 2027,
+          "source_url": "https://www.slas.org/events-calendar/slas2027-international-conference-exhibition/"
+        },
+        {
+          "name": "Tecan",
+          "tier": "GOLD",
+          "prov": "scraped",
+          "year": 2027,
+          "source_url": "https://www.slas.org/events-calendar/slas2027-international-conference-exhibition/"
+        },
+        {
+          "name": "ABB Robotics",
+          "tier": "SILVER",
+          "prov": "scraped",
+          "year": 2027,
+          "source_url": "https://www.slas.org/events-calendar/slas2027-international-conference-exhibition/"
+        },
+        {
+          "name": "Automata",
+          "tier": "SILVER",
+          "prov": "scraped",
+          "year": 2027,
+          "source_url": "https://www.slas.org/events-calendar/slas2027-international-conference-exhibition/"
+        },
+        {
+          "name": "Bruker",
+          "tier": "SILVER",
+          "prov": "scraped",
+          "year": 2027,
+          "source_url": "https://www.slas.org/events-calendar/slas2027-international-conference-exhibition/"
+        },
+        {
+          "name": "Cenevo",
+          "tier": "SILVER",
+          "prov": "scraped",
+          "year": 2027,
+          "source_url": "https://www.slas.org/events-calendar/slas2027-international-conference-exhibition/"
+        },
+        {
+          "name": "Cytiva",
+          "tier": "SILVER",
+          "prov": "scraped",
+          "year": 2027,
+          "source_url": "https://www.slas.org/events-calendar/slas2027-international-conference-exhibition/"
+        },
+        {
+          "name": "Dotmatics",
+          "tier": "SILVER",
+          "prov": "scraped",
+          "year": 2027,
+          "source_url": "https://www.slas.org/events-calendar/slas2027-international-conference-exhibition/"
+        },
+        {
+          "name": "Dynamic Devices",
+          "tier": "SILVER",
+          "prov": "scraped",
+          "year": 2027,
+          "source_url": "https://www.slas.org/events-calendar/slas2027-international-conference-exhibition/"
+        },
+        {
+          "name": "Lab Services",
+          "tier": "SILVER",
+          "prov": "scraped",
+          "year": 2027,
+          "source_url": "https://www.slas.org/events-calendar/slas2027-international-conference-exhibition/"
+        }
+      ],
+      "exhibitors_prior_year": [],
+      "speakers": [
+        {
+          "name": "Cigall Kadoch, PhD",
+          "title": "Professor/Investigator of Pediatric Oncology",
+          "company": "Dana-Farber Cancer Institute",
+          "prov": "scraped",
+          "source_url": "https://www.slas.org/events-calendar/slas2027-international-conference-exhibition/"
+        },
+        {
+          "name": "Wendy Young, PhD",
+          "title": "Former Senior Vice President Drug Discovery",
+          "company": "Genentech; Scientific Advisor, Google Ventures",
+          "prov": "scraped",
+          "source_url": "https://www.slas.org/events-calendar/slas2027-international-conference-exhibition/"
+        }
+      ]
+    },
+    {
+      "event_id": "slas-europe-2025",
+      "series": "SLAS Europe",
+      "name": {
+        "value": "AI 2027",
+        "prov": "scraped",
+        "source_url": "https://ai-2027.com/",
+        "fetched_at": "2026-10-24T22:08:29+00:00",
+        "note": ""
+      },
+      "edition_year": 2025,
+      "start_date": {
+        "value": null,
+        "prov": "scraped",
+        "source_url": "https://ai-2027.com/",
+        "fetched_at": "2026-10-24T22:08:29+00:00",
+        "note": ""
+      },
+      "end_date": {
+        "value": null,
+        "prov": "scraped",
+        "source_url": "https://ai-2027.com/",
+        "fetched_at": "2026-10-24T22:08:29+00:00",
+        "note": ""
+      },
+      "city": {
+        "value": null,
+        "prov": "scraped",
+        "source_url": "https://ai-2027.com/",
+        "fetched_at": "2026-10-24T22:08:29+00:00",
+        "note": ""
+      },
+      "country": {
+        "value": null,
+        "prov": "scraped",
+        "source_url": "https://ai-2027.com/",
+        "fetched_at": "2026-10-24T22:08:29+00:00",
+        "note": ""
+      },
+      "region": "EU",
+      "url": "https://ai-2027.com/",
+      "topics": [
+        "lab automation",
+        "lab informatics"
+      ],
+      "costs": {
+        "pass_price_usd": {
+          "value": 4500,
+          "prov": "estimated",
+          "source_url": null,
+          "fetched_at": "2026-10-24T22:08:29+00:00",
+          "note": "price not published; $1,500/pass default"
+        },
+        "booth_price_usd": {
+          "value": 13000,
+          "prov": "estimated",
+          "source_url": null,
+          "fetched_at": "2026-10-24T22:08:29+00:00",
+          "note": "not published; team default for a standard booth"
+        },
+        "travel_est_usd": {
+          "value": 9600,
+          "prov": "estimated",
+          "source_url": null,
+          "fetched_at": "2026-10-24T22:08:29+00:00",
+          "note": "travel_estimates.csv: 3 x 3200"
+        }
+      },
+      "sponsors": [
+        {
+          "name": "Molecular Devices",
+          "tier": "PREMIER",
+          "prov": "scraped",
+          "year": 2025,
+          "source_url": "https://www.slas.org/events-calendar/slas-europe-2025-conference-and-exhibition/"
+        },
+        {
+          "name": "Analytik-Jena",
+          "tier": "PLATINUM",
+          "prov": "scraped",
+          "year": 2025,
+          "source_url": "https://www.slas.org/events-calendar/slas-europe-2025-conference-and-exhibition/"
+        },
+        {
+          "name": "Beckman Coulter Life Sciences",
+          "tier": "PLATINUM",
+          "prov": "scraped",
+          "year": 2025,
+          "source_url": "https://www.slas.org/events-calendar/slas-europe-2025-conference-and-exhibition/"
+        },
+        {
+          "name": "Evotec",
+          "tier": "PLATINUM",
+          "prov": "scraped",
+          "year": 2025,
+          "source_url": "https://www.slas.org/events-calendar/slas-europe-2025-conference-and-exhibition/"
+        },
+        {
+          "name": "Titian",
+          "tier": "PLATINUM",
+          "prov": "scraped",
+          "year": 2025,
+          "source_url": "https://www.slas.org/events-calendar/slas-europe-2025-conference-and-exhibition/"
+        },
+        {
+          "name": "Araceli Biosciences",
+          "tier": "GOLD",
+          "prov": "scraped",
+          "year": 2025,
+          "source_url": "https://www.slas.org/events-calendar/slas-europe-2025-conference-and-exhibition/"
+        },
+        {
+          "name": "BICO",
+          "tier": "GOLD",
+          "prov": "scraped",
+          "year": 2025,
+          "source_url": "https://www.slas.org/events-calendar/slas-europe-2025-conference-and-exhibition/"
+        },
+        {
+          "name": "Charles River",
+          "tier": "GOLD",
+          "prov": "scraped",
+          "year": 2025,
+          "source_url": "https://www.slas.org/events-calendar/slas-europe-2025-conference-and-exhibition/"
+        },
+        {
+          "name": "Lab Services",
+          "tier": "GOLD",
+          "prov": "scraped",
+          "year": 2025,
+          "source_url": "https://www.slas.org/events-calendar/slas-europe-2025-conference-and-exhibition/"
+        },
+        {
+          "name": "Parallel Fluidics",
+          "tier": "GOLD",
+          "prov": "scraped",
+          "year": 2025,
+          "source_url": "https://www.slas.org/events-calendar/slas-europe-2025-conference-and-exhibition/"
+        },
+        {
+          "name": "ARRALYZE",
+          "tier": "SILVER",
+          "prov": "scraped",
+          "year": 2025,
+          "source_url": "https://www.slas.org/events-calendar/slas-europe-2025-conference-and-exhibition/"
+        },
+        {
+          "name": "Collaborative Drug Discovery",
+          "tier": "SILVER",
+          "prov": "scraped",
+          "year": 2025,
+          "source_url": "https://www.slas.org/events-calendar/slas-europe-2025-conference-and-exhibition/"
+        },
+        {
+          "name": "Corning Life Sciences",
+          "tier": "SILVER",
+          "prov": "scraped",
+          "year": 2025,
+          "source_url": "https://www.slas.org/events-calendar/slas-europe-2025-conference-and-exhibition/"
+        },
+        {
+          "name": "Formulatrix",
+          "tier": "SILVER",
+          "prov": "scraped",
+          "year": 2025,
+          "source_url": "https://www.slas.org/events-calendar/slas-europe-2025-conference-and-exhibition/"
+        },
+        {
+          "name": "Ganymeade",
+          "tier": "SILVER",
+          "prov": "scraped",
+          "year": 2025,
+          "source_url": "https://www.slas.org/events-calendar/slas-europe-2025-conference-and-exhibition/"
+        },
+        {
+          "name": "Greiner Bio-One",
+          "tier": "SILVER",
+          "prov": "scraped",
+          "year": 2025,
+          "source_url": "https://www.slas.org/events-calendar/slas-europe-2025-conference-and-exhibition/"
+        },
+        {
+          "name": "Hamilton Storage",
+          "tier": "SILVER",
+          "prov": "scraped",
+          "year": 2025,
+          "source_url": "https://www.slas.org/events-calendar/slas-europe-2025-conference-and-exhibition/"
+        },
+        {
+          "name": "HighRes Biosolutions",
+          "tier": "SILVER",
+          "prov": "scraped",
+          "year": 2025,
+          "source_url": "https://www.slas.org/events-calendar/slas-europe-2025-conference-and-exhibition/"
+        },
+        {
+          "name": "MagicBioProcessing",
+          "tier": "SILVER",
+          "prov": "scraped",
+          "year": 2025,
+          "source_url": "https://www.slas.org/events-calendar/slas-europe-2025-conference-and-exhibition/"
+        },
+        {
+          "name": "Mettler-Toledo",
+          "tier": "SILVER",
+          "prov": "scraped",
+          "year": 2025,
+          "source_url": "https://www.slas.org/events-calendar/slas-europe-2025-conference-and-exhibition/"
+        },
+        {
+          "name": "MicroNit",
+          "tier": "SILVER",
+          "prov": "scraped",
+          "year": 2025,
+          "source_url": "https://www.slas.org/events-calendar/slas-europe-2025-conference-and-exhibition/"
+        },
+        {
+          "name": "Opentrons",
+          "tier": "SILVER",
+          "prov": "scraped",
+          "year": 2025,
+          "source_url": "https://www.slas.org/events-calendar/slas-europe-2025-conference-and-exhibition/"
+        },
+        {
+          "name": "Sartorius",
+          "tier": "SILVER",
+          "prov": "scraped",
+          "year": 2025,
+          "source_url": "https://www.slas.org/events-calendar/slas-europe-2025-conference-and-exhibition/"
+        },
+        {
+          "name": "SciY",
+          "tier": "SILVER",
+          "prov": "scraped",
+          "year": 2025,
+          "source_url": "https://www.slas.org/events-calendar/slas-europe-2025-conference-and-exhibition/"
+        },
+        {
+          "name": "Sphere Bio",
+          "tier": "SILVER",
+          "prov": "scraped",
+          "year": 2025,
+          "source_url": "https://www.slas.org/events-calendar/slas-europe-2025-conference-and-exhibition/"
+        },
+        {
+          "name": "Yokogawa",
+          "tier": "SILVER",
+          "prov": "scraped",
+          "year": 2025,
+          "source_url": "https://www.slas.org/events-calendar/slas-europe-2025-conference-and-exhibition/"
+        },
+        {
+          "name": "Zontal",
+          "tier": "SILVER",
+          "prov": "scraped",
+          "year": 2025,
+          "source_url": "https://www.slas.org/events-calendar/slas-europe-2025-conference-and-exhibition/"
+        },
+        {
+          "name": "AZ0Network",
+          "tier": "MEDIA PARTNER",
+          "prov": "scraped",
+          "year": 2025,
+          "source_url": "https://www.slas.org/events-calendar/slas-europe-2025-conference-and-exhibition/"
+        },
+        {
+          "name": "The Analytical Scientist",
+          "tier": "MEDIA PARTNER",
+          "prov": "scraped",
+          "year": 2025,
+          "source_url": "https://www.slas.org/events-calendar/slas-europe-2025-conference-and-exhibition/"
+        },
+        {
+          "name": "BioTechniques",
+          "tier": "MEDIA PARTNER",
+          "prov": "scraped",
+          "year": 2025,
+          "source_url": "https://www.slas.org/events-calendar/slas-europe-2025-conference-and-exhibition/"
+        },
+        {
+          "name": "DDW",
+          "tier": "MEDIA PARTNER",
+          "prov": "scraped",
+          "year": 2025,
+          "source_url": "https://www.slas.org/events-calendar/slas-europe-2025-conference-and-exhibition/"
+        },
+        {
+          "name": "Drug Target Review",
+          "tier": "MEDIA PARTNER",
+          "prov": "scraped",
+          "year": 2025,
+          "source_url": "https://www.slas.org/events-calendar/slas-europe-2025-conference-and-exhibition/"
+        },
+        {
+          "name": "European Biotechnology",
+          "tier": "MEDIA PARTNER",
+          "prov": "scraped",
+          "year": 2025,
+          "source_url": "https://www.slas.org/events-calendar/slas-europe-2025-conference-and-exhibition/"
+        },
+        {
+          "name": "GenoWrite",
+          "tier": "MEDIA PARTNER",
+          "prov": "scraped",
+          "year": 2025,
+          "source_url": "https://www.slas.org/events-calendar/slas-europe-2025-conference-and-exhibition/"
+        },
+        {
+          "name": "RSK Life Science Media",
+          "tier": "MEDIA PARTNER",
+          "prov": "scraped",
+          "year": 2025,
+          "source_url": "https://www.slas.org/events-calendar/slas-europe-2025-conference-and-exhibition/"
+        },
+        {
+          "name": "Science | AAAS",
+          "tier": "MEDIA PARTNER",
+          "prov": "scraped",
+          "year": 2025,
+          "source_url": "https://www.slas.org/events-calendar/slas-europe-2025-conference-and-exhibition/"
+        },
+        {
+          "name": "Scientific Computing World",
+          "tier": "MEDIA PARTNER",
+          "prov": "scraped",
+          "year": 2025,
+          "source_url": "https://www.slas.org/events-calendar/slas-europe-2025-conference-and-exhibition/"
+        },
+        {
+          "name": "Select Science",
+          "tier": "Media Partner",
+          "prov": "scraped",
+          "year": 2025,
+          "source_url": "https://www.slas.org/events-calendar/slas-europe-2025-conference-and-exhibition/"
+        },
+        {
+          "name": "SenGlobal",
+          "tier": "MEDIA PARTNER",
+          "prov": "scraped",
+          "year": 2025,
+          "source_url": "https://www.slas.org/events-calendar/slas-europe-2025-conference-and-exhibition/"
+        },
+        {
+          "name": "Transkript",
+          "tier": "MEDIA PARTNER",
+          "prov": "scraped",
+          "year": 2025,
+          "source_url": "https://www.slas.org/events-calendar/slas-europe-2025-conference-and-exhibition/"
+        },
+        {
+          "name": "Zyme",
+          "tier": "Media Partner",
+          "prov": "scraped",
+          "year": 2025,
+          "source_url": "https://www.slas.org/events-calendar/slas-europe-2025-conference-and-exhibition/"
+        }
+      ],
+      "exhibitors_prior_year": [
+        {
+          "name": "100XBIO",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://www.slas.org/events-calendar/slas2026-international-conference-exhibition/sponsor-and-exhibit/innovation-avenew/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Atinary Technologies, Inc.",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://www.slas.org/events-calendar/slas2026-international-conference-exhibition/sponsor-and-exhibit/innovation-avenew/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Aventix AB",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://www.slas.org/events-calendar/slas2026-international-conference-exhibition/sponsor-and-exhibit/innovation-avenew/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "BIOCAPTIVA Ltd",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://www.slas.org/events-calendar/slas2026-international-conference-exhibition/sponsor-and-exhibit/innovation-avenew/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "CellarisBio",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://www.slas.org/events-calendar/slas2026-international-conference-exhibition/sponsor-and-exhibit/innovation-avenew/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "DropXcell Corporation",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://www.slas.org/events-calendar/slas2026-international-conference-exhibition/sponsor-and-exhibit/innovation-avenew/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "EVEREST BIOLABS",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://www.slas.org/events-calendar/slas2026-international-conference-exhibition/sponsor-and-exhibit/innovation-avenew/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Evizia",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://www.slas.org/events-calendar/slas2026-international-conference-exhibition/sponsor-and-exhibit/innovation-avenew/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Flexomics LLC",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://www.slas.org/events-calendar/slas2026-international-conference-exhibition/sponsor-and-exhibit/innovation-avenew/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "GelTech Labs",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://www.slas.org/events-calendar/slas2026-international-conference-exhibition/sponsor-and-exhibit/innovation-avenew/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "MxT Biotech",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://www.slas.org/events-calendar/slas2026-international-conference-exhibition/sponsor-and-exhibit/innovation-avenew/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Precision Oxidation",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://www.slas.org/events-calendar/slas2026-international-conference-exhibition/sponsor-and-exhibit/innovation-avenew/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Synfini Inc.",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://www.slas.org/events-calendar/slas2026-international-conference-exhibition/sponsor-and-exhibit/innovation-avenew/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Tangible Scientific",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://www.slas.org/events-calendar/slas2026-international-conference-exhibition/sponsor-and-exhibit/innovation-avenew/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Tercen Data Analytics Ltd.",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://www.slas.org/events-calendar/slas2026-international-conference-exhibition/sponsor-and-exhibit/innovation-avenew/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Vitroscope",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://www.slas.org/events-calendar/slas2026-international-conference-exhibition/sponsor-and-exhibit/innovation-avenew/",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "XDemics Corporation",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://www.slas.org/events-calendar/slas2026-international-conference-exhibition/sponsor-and-exhibit/innovation-avenew/",
+          "basis": "prior_year_exhibitor"
+        }
+      ],
+      "speakers": [
+        {
+          "name": "Daniel Kokotajlo",
+          "title": null,
+          "company": null,
+          "prov": "scraped",
+          "source_url": "https://ai-2027.com/"
+        },
+        {
+          "name": "Scott Alexander",
+          "title": null,
+          "company": null,
+          "prov": "scraped",
+          "source_url": "https://ai-2027.com/"
+        },
+        {
+          "name": "Thomas Larsen",
+          "title": null,
+          "company": null,
+          "prov": "scraped",
+          "source_url": "https://ai-2027.com/"
+        },
+        {
+          "name": "Eli Lifland",
+          "title": null,
+          "company": null,
+          "prov": "scraped",
+          "source_url": "https://ai-2027.com/"
+        },
+        {
+          "name": "Romeo Dean",
+          "title": null,
+          "company": null,
+          "prov": "scraped",
+          "source_url": "https://ai-2027.com/"
+        }
+      ]
+    },
+    {
+      "event_id": "bio-international-convention-unknown",
+      "series": "BIO International Convention",
+      "name": {
+        "value": "BIO International Convention",
+        "prov": "scraped",
+        "source_url": "https://www.google.com/goto?url=CAEScAHrOzAVbzmELhULXx_Ie3T-vz4UWt2h6TtOH_SvTB_HB2fscwVpoMCyNeenK0b2KhtpZC5kq7nXuh0bD63YACuVKsTCtg6GV20R5i0-amHbP4_ENVng79grZF4-yEfuwLonQM68NVSXrbMOnizdoXw",
+        "fetched_at": "2026-10-24T22:08:22+00:00",
+        "note": ""
+      },
+      "edition_year": null,
+      "start_date": {
+        "value": null,
+        "prov": "scraped",
+        "source_url": "https://www.google.com/goto?url=CAEScAHrOzAVbzmELhULXx_Ie3T-vz4UWt2h6TtOH_SvTB_HB2fscwVpoMCyNeenK0b2KhtpZC5kq7nXuh0bD63YACuVKsTCtg6GV20R5i0-amHbP4_ENVng79grZF4-yEfuwLonQM68NVSXrbMOnizdoXw",
+        "fetched_at": "2026-10-24T22:08:22+00:00",
+        "note": ""
+      },
+      "end_date": {
+        "value": null,
+        "prov": "scraped",
+        "source_url": "https://www.google.com/goto?url=CAEScAHrOzAVbzmELhULXx_Ie3T-vz4UWt2h6TtOH_SvTB_HB2fscwVpoMCyNeenK0b2KhtpZC5kq7nXuh0bD63YACuVKsTCtg6GV20R5i0-amHbP4_ENVng79grZF4-yEfuwLonQM68NVSXrbMOnizdoXw",
+        "fetched_at": "2026-10-24T22:08:22+00:00",
+        "note": ""
+      },
+      "city": {
+        "value": null,
+        "prov": "scraped",
+        "source_url": "https://www.google.com/goto?url=CAEScAHrOzAVbzmELhULXx_Ie3T-vz4UWt2h6TtOH_SvTB_HB2fscwVpoMCyNeenK0b2KhtpZC5kq7nXuh0bD63YACuVKsTCtg6GV20R5i0-amHbP4_ENVng79grZF4-yEfuwLonQM68NVSXrbMOnizdoXw",
+        "fetched_at": "2026-10-24T22:08:22+00:00",
+        "note": ""
+      },
+      "country": {
+        "value": null,
+        "prov": "scraped",
+        "source_url": "https://www.google.com/goto?url=CAEScAHrOzAVbzmELhULXx_Ie3T-vz4UWt2h6TtOH_SvTB_HB2fscwVpoMCyNeenK0b2KhtpZC5kq7nXuh0bD63YACuVKsTCtg6GV20R5i0-amHbP4_ENVng79grZF4-yEfuwLonQM68NVSXrbMOnizdoXw",
+        "fetched_at": "2026-10-24T22:08:22+00:00",
+        "note": ""
+      },
+      "region": "US",
+      "url": "https://www.google.com/goto?url=CAEScAHrOzAVbzmELhULXx_Ie3T-vz4UWt2h6TtOH_SvTB_HB2fscwVpoMCyNeenK0b2KhtpZC5kq7nXuh0bD63YACuVKsTCtg6GV20R5i0-amHbP4_ENVng79grZF4-yEfuwLonQM68NVSXrbMOnizdoXw",
+      "topics": [
+        "biopharma partnering"
+      ],
+      "costs": {
+        "pass_price_usd": {
+          "value": 4500,
+          "prov": "estimated",
+          "source_url": null,
+          "fetched_at": "2026-10-24T22:08:22+00:00",
+          "note": "price not published; $1,500/pass default"
+        },
+        "booth_price_usd": {
+          "value": 15000,
+          "prov": "estimated",
+          "source_url": null,
+          "fetched_at": "2026-10-24T22:08:22+00:00",
+          "note": "not published; team default for a standard booth"
+        },
+        "travel_est_usd": {
+          "value": 5400,
+          "prov": "estimated",
+          "source_url": null,
+          "fetched_at": "2026-10-24T22:08:22+00:00",
+          "note": "travel_estimates.csv: 3 x 1800"
+        }
+      },
+      "sponsors": [],
+      "exhibitors_prior_year": [],
+      "speakers": []
+    },
+    {
+      "event_id": "aacr-annual-meeting-unknown",
+      "series": "AACR Annual Meeting",
+      "name": {
+        "value": "AACR Annual Meeting",
+        "prov": "scraped",
+        "source_url": "https://www.google.com/goto?url=CAEScQHrOzAV7fykLNgz8mp_8Bv-YYvyfs_BiOEWvUzMedKPNeebvHEoQ-rr4CSFJ3TquKQum7JGp2Eifk0GWJuV_adtQZLRGDOX_s1qgtF97ORuLjsXmNl2G8lk5M4UhELeZ-uvU0FG8d-iPVN-8u--kI2k",
+        "fetched_at": "2026-10-24T22:08:39+00:00",
+        "note": ""
+      },
+      "edition_year": null,
+      "start_date": {
+        "value": null,
+        "prov": "scraped",
+        "source_url": "https://www.google.com/goto?url=CAEScQHrOzAV7fykLNgz8mp_8Bv-YYvyfs_BiOEWvUzMedKPNeebvHEoQ-rr4CSFJ3TquKQum7JGp2Eifk0GWJuV_adtQZLRGDOX_s1qgtF97ORuLjsXmNl2G8lk5M4UhELeZ-uvU0FG8d-iPVN-8u--kI2k",
+        "fetched_at": "2026-10-24T22:08:39+00:00",
+        "note": ""
+      },
+      "end_date": {
+        "value": null,
+        "prov": "scraped",
+        "source_url": "https://www.google.com/goto?url=CAEScQHrOzAV7fykLNgz8mp_8Bv-YYvyfs_BiOEWvUzMedKPNeebvHEoQ-rr4CSFJ3TquKQum7JGp2Eifk0GWJuV_adtQZLRGDOX_s1qgtF97ORuLjsXmNl2G8lk5M4UhELeZ-uvU0FG8d-iPVN-8u--kI2k",
+        "fetched_at": "2026-10-24T22:08:39+00:00",
+        "note": ""
+      },
+      "city": {
+        "value": null,
+        "prov": "scraped",
+        "source_url": "https://www.google.com/goto?url=CAEScQHrOzAV7fykLNgz8mp_8Bv-YYvyfs_BiOEWvUzMedKPNeebvHEoQ-rr4CSFJ3TquKQum7JGp2Eifk0GWJuV_adtQZLRGDOX_s1qgtF97ORuLjsXmNl2G8lk5M4UhELeZ-uvU0FG8d-iPVN-8u--kI2k",
+        "fetched_at": "2026-10-24T22:08:39+00:00",
+        "note": ""
+      },
+      "country": {
+        "value": null,
+        "prov": "scraped",
+        "source_url": "https://www.google.com/goto?url=CAEScQHrOzAV7fykLNgz8mp_8Bv-YYvyfs_BiOEWvUzMedKPNeebvHEoQ-rr4CSFJ3TquKQum7JGp2Eifk0GWJuV_adtQZLRGDOX_s1qgtF97ORuLjsXmNl2G8lk5M4UhELeZ-uvU0FG8d-iPVN-8u--kI2k",
+        "fetched_at": "2026-10-24T22:08:39+00:00",
+        "note": ""
+      },
+      "region": "US",
+      "url": "https://www.google.com/goto?url=CAEScQHrOzAV7fykLNgz8mp_8Bv-YYvyfs_BiOEWvUzMedKPNeebvHEoQ-rr4CSFJ3TquKQum7JGp2Eifk0GWJuV_adtQZLRGDOX_s1qgtF97ORuLjsXmNl2G8lk5M4UhELeZ-uvU0FG8d-iPVN-8u--kI2k",
+      "topics": [
+        "oncology research"
+      ],
+      "costs": {
+        "pass_price_usd": {
+          "value": 4500,
+          "prov": "estimated",
+          "source_url": null,
+          "fetched_at": "2026-10-24T22:08:39+00:00",
+          "note": "price not published; $1,500/pass default"
+        },
+        "booth_price_usd": {
+          "value": 15000,
+          "prov": "estimated",
+          "source_url": null,
+          "fetched_at": "2026-10-24T22:08:39+00:00",
+          "note": "not published; team default for a standard booth"
+        },
+        "travel_est_usd": {
+          "value": 5400,
+          "prov": "estimated",
+          "source_url": null,
+          "fetched_at": "2026-10-24T22:08:39+00:00",
+          "note": "travel_estimates.csv: 3 x 1800"
+        }
+      },
+      "sponsors": [],
+      "exhibitors_prior_year": [],
+      "speakers": []
+    },
+    {
+      "event_id": "biotech-showcase-2027",
+      "series": "Biotech Showcase",
+      "name": {
+        "value": "Biotech Showcase 2027",
+        "prov": "scraped",
+        "source_url": "https://www.life-sciences-usa.com/product/biotech-showcase-2027-san-ebd-group-inc-informa-2001-33841.html",
+        "fetched_at": "2026-10-24T22:09:34+00:00",
+        "note": ""
+      },
+      "edition_year": 2027,
+      "start_date": {
+        "value": "2027-01-11",
+        "prov": "scraped",
+        "source_url": "https://www.life-sciences-usa.com/product/biotech-showcase-2027-san-ebd-group-inc-informa-2001-33841.html",
+        "fetched_at": "2026-10-24T22:09:34+00:00",
+        "note": ""
+      },
+      "end_date": {
+        "value": "2027-01-13",
+        "prov": "scraped",
+        "source_url": "https://www.life-sciences-usa.com/product/biotech-showcase-2027-san-ebd-group-inc-informa-2001-33841.html",
+        "fetched_at": "2026-10-24T22:09:34+00:00",
+        "note": ""
+      },
+      "city": {
+        "value": "San Francisco",
+        "prov": "scraped",
+        "source_url": "https://www.life-sciences-usa.com/product/biotech-showcase-2027-san-ebd-group-inc-informa-2001-33841.html",
+        "fetched_at": "2026-10-24T22:09:34+00:00",
+        "note": ""
+      },
+      "country": {
+        "value": "US",
+        "prov": "scraped",
+        "source_url": "https://www.life-sciences-usa.com/product/biotech-showcase-2027-san-ebd-group-inc-informa-2001-33841.html",
+        "fetched_at": "2026-10-24T22:09:34+00:00",
+        "note": ""
+      },
+      "region": "US",
+      "url": "https://www.life-sciences-usa.com/product/biotech-showcase-2027-san-ebd-group-inc-informa-2001-33841.html",
+      "topics": [
+        "biopharma partnering"
+      ],
+      "costs": {
+        "pass_price_usd": {
+          "value": 4500,
+          "prov": "estimated",
+          "source_url": null,
+          "fetched_at": "2026-10-24T22:09:34+00:00",
+          "note": "price not published; $1,500/pass default"
+        },
+        "booth_price_usd": {
+          "value": 15000,
+          "prov": "estimated",
+          "source_url": null,
+          "fetched_at": "2026-10-24T22:09:34+00:00",
+          "note": "not published; team default for a standard booth"
+        },
+        "travel_est_usd": {
+          "value": 5400,
+          "prov": "estimated",
+          "source_url": null,
+          "fetched_at": "2026-10-24T22:09:34+00:00",
+          "note": "travel_estimates.csv: 3 x 1800"
+        }
+      },
+      "sponsors": [],
+      "exhibitors_prior_year": [],
+      "speakers": []
+    },
+    {
+      "event_id": "paperless-lab-academy-2027",
+      "series": "Paperless Lab Academy",
+      "name": {
+        "value": "Paperless Lab Academy",
+        "prov": "scraped",
+        "source_url": "https://zifo.com/event/paperless-lab-academy-india-2025/",
+        "fetched_at": "2026-10-24T22:08:49+00:00",
+        "note": ""
+      },
+      "edition_year": 2027,
+      "start_date": {
+        "value": "2027-04-27",
+        "prov": "scraped",
+        "source_url": "https://zifo.com/event/paperless-lab-academy-india-2025/",
+        "fetched_at": "2026-10-24T22:08:49+00:00",
+        "note": ""
+      },
+      "end_date": {
+        "value": "2027-04-28",
+        "prov": "scraped",
+        "source_url": "https://zifo.com/event/paperless-lab-academy-india-2025/",
+        "fetched_at": "2026-10-24T22:08:49+00:00",
+        "note": ""
+      },
+      "city": {
+        "value": "Hyderabad",
+        "prov": "scraped",
+        "source_url": "https://zifo.com/event/paperless-lab-academy-india-2025/",
+        "fetched_at": "2026-10-24T22:08:49+00:00",
+        "note": ""
+      },
+      "country": {
+        "value": "IN",
+        "prov": "scraped",
+        "source_url": "https://zifo.com/event/paperless-lab-academy-india-2025/",
+        "fetched_at": "2026-10-24T22:08:49+00:00",
+        "note": ""
+      },
+      "region": "OTHER",
+      "url": "https://zifo.com/event/paperless-lab-academy-india-2025/",
+      "topics": [
+        "lab informatics"
+      ],
+      "costs": {
+        "pass_price_usd": {
+          "value": 4500,
+          "prov": "estimated",
+          "source_url": null,
+          "fetched_at": "2026-10-24T22:08:49+00:00",
+          "note": "price not published; $1,500/pass default"
+        },
+        "booth_price_usd": {
+          "value": 15000,
+          "prov": "estimated",
+          "source_url": null,
+          "fetched_at": "2026-10-24T22:08:49+00:00",
+          "note": "not published; team default for a standard booth"
+        },
+        "travel_est_usd": {
+          "value": 5400,
+          "prov": "estimated",
+          "source_url": null,
+          "fetched_at": "2026-10-24T22:08:49+00:00",
+          "note": "travel_estimates.csv: 3 x 1800"
+        }
+      },
+      "sponsors": [],
+      "exhibitors_prior_year": [],
+      "speakers": []
+    },
+    {
+      "event_id": "society-of-toxicology-annual-meeting-2027",
+      "series": "Society of Toxicology Annual Meeting",
+      "name": {
+        "value": "SOT Annual Meeting and ToxExpo",
+        "prov": "scraped",
+        "source_url": "https://www.toxicology.org/2027/",
+        "fetched_at": "2026-10-24T22:08:49+00:00",
+        "note": ""
+      },
+      "edition_year": 2027,
+      "start_date": {
+        "value": "2027-03-14",
+        "prov": "scraped",
+        "source_url": "https://www.toxicology.org/2027/",
+        "fetched_at": "2026-10-24T22:08:49+00:00",
+        "note": ""
+      },
+      "end_date": {
+        "value": "2027-03-17",
+        "prov": "scraped",
+        "source_url": "https://www.toxicology.org/2027/",
+        "fetched_at": "2026-10-24T22:08:49+00:00",
+        "note": ""
+      },
+      "city": {
+        "value": "San Antonio",
+        "prov": "scraped",
+        "source_url": "https://www.toxicology.org/2027/",
+        "fetched_at": "2026-10-24T22:08:49+00:00",
+        "note": ""
+      },
+      "country": {
+        "value": "US",
+        "prov": "scraped",
+        "source_url": "https://www.toxicology.org/2027/",
+        "fetched_at": "2026-10-24T22:08:49+00:00",
+        "note": ""
+      },
+      "region": "US",
+      "url": "https://www.toxicology.org/2027/",
+      "topics": [
+        "toxicology",
+        "preclinical"
+      ],
+      "costs": {
+        "pass_price_usd": {
+          "value": 4500,
+          "prov": "estimated",
+          "source_url": null,
+          "fetched_at": "2026-10-24T22:08:49+00:00",
+          "note": "price not published; $1,500/pass default"
+        },
+        "booth_price_usd": {
+          "value": 15000,
+          "prov": "estimated",
+          "source_url": null,
+          "fetched_at": "2026-10-24T22:08:49+00:00",
+          "note": "not published; team default for a standard booth"
+        },
+        "travel_est_usd": {
+          "value": 5400,
+          "prov": "estimated",
+          "source_url": null,
+          "fetched_at": "2026-10-24T22:08:49+00:00",
+          "note": "travel_estimates.csv: 3 x 1800"
+        }
+      },
+      "sponsors": [
+        {
+          "name": "Charles River",
+          "tier": "Diamond",
+          "prov": "scraped",
+          "year": 2027,
+          "source_url": "https://www.toxicology.org/2027/"
+        },
+        {
+          "name": "Eli Lilly and Company",
+          "tier": "Diamond",
+          "prov": "scraped",
+          "year": 2027,
+          "source_url": "https://www.toxicology.org/2027/"
+        },
+        {
+          "name": "SOT Endowment",
+          "tier": "Diamond",
+          "prov": "scraped",
+          "year": 2027,
+          "source_url": "https://www.toxicology.org/2027/"
+        },
+        {
+          "name": "UL Research Institutes\u2019 Chemical Insights",
+          "tier": "Diamond",
+          "prov": "scraped",
+          "year": 2027,
+          "source_url": "https://www.toxicology.org/2027/"
+        },
+        {
+          "name": "WuXi AppTec",
+          "tier": "Diamond",
+          "prov": "scraped",
+          "year": 2027,
+          "source_url": "https://www.toxicology.org/2027/"
+        }
+      ],
+      "exhibitors_prior_year": [
+        {
+          "name": "Ampersand Biosciences",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://www.toxicology.org/events/am/AM2026/about-toxexpo.asp",
+          "basis": "prior_year_exhibitor"
+        }
+      ],
+      "speakers": []
+    },
+    {
+      "event_id": "cphi-americas-2026",
+      "series": "CPHI Americas",
+      "name": {
+        "value": "CPHI",
+        "prov": "scraped",
+        "source_url": "https://www.cphi.com/",
+        "fetched_at": "2026-10-24T22:09:03+00:00",
+        "note": ""
+      },
+      "edition_year": 2026,
+      "start_date": {
+        "value": "2026-11-23",
+        "prov": "scraped",
+        "source_url": "https://www.cphi.com/",
+        "fetched_at": "2026-10-24T22:09:03+00:00",
+        "note": ""
+      },
+      "end_date": {
+        "value": "2026-11-25",
+        "prov": "scraped",
+        "source_url": "https://www.cphi.com/",
+        "fetched_at": "2026-10-24T22:09:03+00:00",
+        "note": ""
+      },
+      "city": {
+        "value": "Dwarka, Delhi",
+        "prov": "scraped",
+        "source_url": "https://www.cphi.com/",
+        "fetched_at": "2026-10-24T22:09:03+00:00",
+        "note": ""
+      },
+      "country": {
+        "value": "IN",
+        "prov": "scraped",
+        "source_url": "https://www.cphi.com/",
+        "fetched_at": "2026-10-24T22:09:03+00:00",
+        "note": ""
+      },
+      "region": "OTHER",
+      "url": "https://www.cphi.com/",
+      "topics": [
+        "pharma manufacturing",
+        "CDMO"
+      ],
+      "costs": {
+        "pass_price_usd": {
+          "value": 4500,
+          "prov": "estimated",
+          "source_url": null,
+          "fetched_at": "2026-10-24T22:09:03+00:00",
+          "note": "price not published; $1,500/pass default"
+        },
+        "booth_price_usd": {
+          "value": 15000,
+          "prov": "estimated",
+          "source_url": null,
+          "fetched_at": "2026-10-24T22:09:03+00:00",
+          "note": "not published; team default for a standard booth"
+        },
+        "travel_est_usd": {
+          "value": 5400,
+          "prov": "estimated",
+          "source_url": null,
+          "fetched_at": "2026-10-24T22:09:03+00:00",
+          "note": "travel_estimates.csv: 3 x 1800"
+        }
+      },
+      "sponsors": [],
+      "exhibitors_prior_year": [
+        {
+          "name": "24/7 Biopharma",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://visitor.cphieventplanner.com/event/cphi-americas-2026/exhibitors/RXZlbnRWaWV3XzEyNDUwOTY=",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "3SSolutions",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://visitor.cphieventplanner.com/event/cphi-americas-2026/exhibitors/RXZlbnRWaWV3XzEyNDUwOTY=",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Aarti Pharmalabs Limited",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://visitor.cphieventplanner.com/event/cphi-americas-2026/exhibitors/RXZlbnRWaWV3XzEyNDUwOTY=",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Accuon Labs Inc.",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://visitor.cphieventplanner.com/event/cphi-americas-2026/exhibitors/RXZlbnRWaWV3XzEyNDUwOTY=",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "ACollaboratory America Inc.",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://visitor.cphieventplanner.com/event/cphi-americas-2026/exhibitors/RXZlbnRWaWV3XzEyNDUwOTY=",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Acon Pharmaceuticals",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://visitor.cphieventplanner.com/event/cphi-americas-2026/exhibitors/RXZlbnRWaWV3XzEyNDUwOTY=",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "ACUTAAS CHEMICALS LIMITED",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://visitor.cphieventplanner.com/event/cphi-americas-2026/exhibitors/RXZlbnRWaWV3XzEyNDUwOTY=",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Adaptive Pallet Solutions",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://visitor.cphieventplanner.com/event/cphi-americas-2026/exhibitors/RXZlbnRWaWV3XzEyNDUwOTY=",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Adare Pharma Solutions",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://visitor.cphieventplanner.com/event/cphi-americas-2026/exhibitors/RXZlbnRWaWV3XzEyNDUwOTY=",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Adesis",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://visitor.cphieventplanner.com/event/cphi-americas-2026/exhibitors/RXZlbnRWaWV3XzEyNDUwOTY=",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "AdhexPharma",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://visitor.cphieventplanner.com/event/cphi-americas-2026/exhibitors/RXZlbnRWaWV3XzEyNDUwOTY=",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "ADIYA Global Mfg",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://visitor.cphieventplanner.com/event/cphi-americas-2026/exhibitors/RXZlbnRWaWV3XzEyNDUwOTY=",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Aenova",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://visitor.cphieventplanner.com/event/cphi-americas-2026/exhibitors/RXZlbnRWaWV3XzEyNDUwOTY=",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Affinity Research Chemicals Inc",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://visitor.cphieventplanner.com/event/cphi-americas-2026/exhibitors/RXZlbnRWaWV3XzEyNDUwOTY=",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "AGC Pharma Chemicals",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://visitor.cphieventplanner.com/event/cphi-americas-2026/exhibitors/RXZlbnRWaWV3XzEyNDUwOTY=",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Agilent",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://visitor.cphieventplanner.com/event/cphi-americas-2026/exhibitors/RXZlbnRWaWV3XzEyNDUwOTY=",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Agilent Advanced Therapeutics",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://visitor.cphieventplanner.com/event/cphi-americas-2026/exhibitors/RXZlbnRWaWV3XzEyNDUwOTY=",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Agno Pharma",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://visitor.cphieventplanner.com/event/cphi-americas-2026/exhibitors/RXZlbnRWaWV3XzEyNDUwOTY=",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Albemarle",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://visitor.cphieventplanner.com/event/cphi-americas-2026/exhibitors/RXZlbnRWaWV3XzEyNDUwOTY=",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Alcami",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://visitor.cphieventplanner.com/event/cphi-americas-2026/exhibitors/RXZlbnRWaWV3XzEyNDUwOTY=",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Allegheny Surface Technology",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://visitor.cphieventplanner.com/event/cphi-americas-2026/exhibitors/RXZlbnRWaWV3XzEyNDUwOTY=",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Almac Group ltd",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://visitor.cphieventplanner.com/event/cphi-americas-2026/exhibitors/RXZlbnRWaWV3XzEyNDUwOTY=",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Altasciences",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://visitor.cphieventplanner.com/event/cphi-americas-2026/exhibitors/RXZlbnRWaWV3XzEyNDUwOTY=",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Amadis Chemical Company Limited",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://visitor.cphieventplanner.com/event/cphi-americas-2026/exhibitors/RXZlbnRWaWV3XzEyNDUwOTY=",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "American Health Packaging",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://visitor.cphieventplanner.com/event/cphi-americas-2026/exhibitors/RXZlbnRWaWV3XzEyNDUwOTY=",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "American International Container",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://visitor.cphieventplanner.com/event/cphi-americas-2026/exhibitors/RXZlbnRWaWV3XzEyNDUwOTY=",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Andritz Inc.",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://visitor.cphieventplanner.com/event/cphi-americas-2026/exhibitors/RXZlbnRWaWV3XzEyNDUwOTY=",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Apace Packaging",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://visitor.cphieventplanner.com/event/cphi-americas-2026/exhibitors/RXZlbnRWaWV3XzEyNDUwOTY=",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Apeloa Pharmaceutical Co., Ltd.",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://visitor.cphieventplanner.com/event/cphi-americas-2026/exhibitors/RXZlbnRWaWV3XzEyNDUwOTY=",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Apprentice FS, Inc. DBA Apprentice.io",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://visitor.cphieventplanner.com/event/cphi-americas-2026/exhibitors/RXZlbnRWaWV3XzEyNDUwOTY=",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "ARL Bio Pharma",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://visitor.cphieventplanner.com/event/cphi-americas-2026/exhibitors/RXZlbnRWaWV3XzEyNDUwOTY=",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Artech Ultrasonic systems",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://visitor.cphieventplanner.com/event/cphi-americas-2026/exhibitors/RXZlbnRWaWV3XzEyNDUwOTY=",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Ascendia Pharmaceutical Solutions",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://visitor.cphieventplanner.com/event/cphi-americas-2026/exhibitors/RXZlbnRWaWV3XzEyNDUwOTY=",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Astonea Labs Ltd.",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://visitor.cphieventplanner.com/event/cphi-americas-2026/exhibitors/RXZlbnRWaWV3XzEyNDUwOTY=",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Asymchem",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://visitor.cphieventplanner.com/event/cphi-americas-2026/exhibitors/RXZlbnRWaWV3XzEyNDUwOTY=",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "ATABAY KIMYA SANAYI TICARET A.S.",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://visitor.cphieventplanner.com/event/cphi-americas-2026/exhibitors/RXZlbnRWaWV3XzEyNDUwOTY=",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "August Bioservices",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://visitor.cphieventplanner.com/event/cphi-americas-2026/exhibitors/RXZlbnRWaWV3XzEyNDUwOTY=",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Aurisco Pharmaceutical Co.,Ltd",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://visitor.cphieventplanner.com/event/cphi-americas-2026/exhibitors/RXZlbnRWaWV3XzEyNDUwOTY=",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Avara Pharma Manufacturing - CMO",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://visitor.cphieventplanner.com/event/cphi-americas-2026/exhibitors/RXZlbnRWaWV3XzEyNDUwOTY=",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "BA Sciences",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://visitor.cphieventplanner.com/event/cphi-americas-2026/exhibitors/RXZlbnRWaWV3XzEyNDUwOTY=",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Barentz",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://visitor.cphieventplanner.com/event/cphi-americas-2026/exhibitors/RXZlbnRWaWV3XzEyNDUwOTY=",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "BBChem Co., Ltd.,Dalian,China",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://visitor.cphieventplanner.com/event/cphi-americas-2026/exhibitors/RXZlbnRWaWV3XzEyNDUwOTY=",
+          "basis": "prior_year_exhibitor"
+        },
+        {
+          "name": "Beijing CIMC Cold Chain Technology Co., Ltd.",
+          "prov": "estimated",
+          "year": 2026,
+          "source_url": "https://visitor.cphieventplanner.com/event/cphi-americas-2026/exhibitors/RXZlbnRWaWV3XzEyNDUwOTY=",
+          "basis": "prior_year_exhibitor"
+        }
+      ],
+      "speakers": [
+        {
+          "name": "Richard Pazdur",
+          "title": "Former Director of the FDA Oncology Center of Excellence",
+          "company": null,
+          "prov": "scraped",
+          "source_url": "https://www.samedanltd.com/press-releases/cphi-americas-2026-unveils-keynote-speakers-tackling-pharmas-toughest-challenges/"
+        },
+        {
+          "name": "Murray Aitken",
+          "title": "Senior Vice President at IQVIA",
+          "company": "IQVIA Institute for Human Data Science",
+          "prov": "scraped",
+          "source_url": "https://www.samedanltd.com/press-releases/cphi-americas-2026-unveils-keynote-speakers-tackling-pharmas-toughest-challenges/"
+        },
+        {
+          "name": "Sirsij Peshin",
+          "title": "Chief Procurement Officer and Global Lead, Source to Pay",
+          "company": "Pfizer Inc.",
+          "prov": "scraped",
+          "source_url": "https://www.samedanltd.com/press-releases/cphi-americas-2026-unveils-keynote-speakers-tackling-pharmas-toughest-challenges/"
+        }
+      ]
+    }
+  ]
+}

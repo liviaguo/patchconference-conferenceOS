@@ -36,7 +36,9 @@ def slug(s: str) -> str:
     return re.sub(r"[^a-z0-9]+", "-", s.lower()).strip("-")
 
 
-def first_useful_link(results: list[dict]) -> str | None:
+def first_useful_link(results: list[dict], year: str = "2027") -> str | None:
+    # Prefer pages about the target edition; search often ranks last year's page first.
+    results = sorted(results, key=lambda r: year not in f"{r.get('title')} {r.get('link')}")
     for r in results:
         link = r.get("link") or ""
         if link and not any(d in link for d in SKIP_DOMAINS):
@@ -44,8 +46,8 @@ def first_useful_link(results: list[dict]) -> str | None:
     return None
 
 
-def scrape_and_extract(query: str) -> tuple[dict, str | None]:
-    url = first_useful_link(brightdata.serp(query))
+def scrape_and_extract(query: str, year: str = "2027") -> tuple[dict, str | None]:
+    url = first_useful_link(brightdata.serp(query), year)
     if not url:
         return {}, None
     return extract_event(brightdata.unlock(url), url), url
@@ -78,7 +80,7 @@ def discover_one(seed: dict, travel: dict) -> dict | None:
     speakers = [dict(s, prov="scraped", source_url=url) for s in info.get("speakers") or []]
 
     # 2027 lists are often unpublished this far out; prior-year exhibitors are an estimate of attendance.
-    prior, prior_url = scrape_and_extract(f"{series} 2026 exhibitor list")
+    prior, prior_url = scrape_and_extract(f"{series} 2026 exhibitor list", "2026")
     prior_exhibitors = [{"name": n, "prov": "estimated", "year": 2026, "source_url": prior_url,
                          "basis": "prior_year_exhibitor"}
                         for n in (prior.get("exhibitors") or []) + [s["name"] for s in prior.get("sponsors") or []]]
@@ -128,9 +130,18 @@ def discover_one(seed: dict, travel: dict) -> dict | None:
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--limit", type=int, default=0)
+    ap.add_argument("--retry-incomplete", action="store_true",
+                    help="re-scrape series missing from, or undated in, the latest cache and merge")
     args = ap.parse_args()
 
     seeds = list(csv.DictReader(open(DATA / "event_seeds.csv")))
+    keep: list[dict] = []
+    if args.retry_incomplete and cache.latest():
+        prev = cache.latest()["events"]
+        keep = [e for e in prev if e["start_date"]["value"]]
+        done = {e["series"] for e in keep}
+        seeds = [s for s in seeds if s["series"] not in done]
+        print(f"Keeping {len(keep)} dated events; retrying {len(seeds)} series")
     if args.limit:
         seeds = seeds[: args.limit]
     travel = {r["dest_region"]: r for r in csv.DictReader(open(DATA / "travel_estimates.csv"))}
@@ -144,6 +155,9 @@ def main() -> None:
 
     with ThreadPoolExecutor(max_workers=6) as pool:
         events = [e for e in pool.map(safe, seeds) if e]
+    if keep:
+        # an undated retry result shouldn't replace nothing with nothing, but it's still listed
+        events = keep + events
 
     if not events:
         print("No events scraped; keeping previous cache:", cache.latest() is not None)
