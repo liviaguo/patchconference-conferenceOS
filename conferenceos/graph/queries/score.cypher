@@ -29,6 +29,11 @@ OPTIONAL MATCH (a:Account)-[:IN_PIPELINE]->(o:Opportunity) WHERE a.name IN accts
 WITH e, r, total_icp, hits, accts, sum(coalesce(o.amount_usd, 0)) AS sim_pipeline,
      coalesce(e.pass_price, 0) + coalesce(e.booth_price, 0) + coalesce(e.travel_est, 0) AS cost
 
+// simulated masked attendee lists: ICP accounts with registrants (secondary factor, blended in the app)
+OPTIONAL MATCH (ra:Account)-[g:REGISTERED_AT]->(e)
+WITH e, r, total_icp, hits, accts, sim_pipeline, cost,
+     count(DISTINCT ra) AS reg_accts, sum(coalesce(g.count, 0)) AS reg_people
+
 RETURN e.event_id AS event_id, e.name AS event, e.series AS series, r.code AS region,
        e.start_date AS start_date, e.city AS city, e.url AS url, e.fetched_at AS fetched_at,
        size(accts) AS accounts_present, accts AS accounts,
@@ -39,5 +44,6 @@ RETURN e.event_id AS event_id, e.name AS event, e.series AS series, r.code AS re
        e.travel_est AS travel_est, e.travel_est_prov AS travel_est_prov, e.travel_est_note AS travel_est_note,
        CASE WHEN cost > 0 THEN size(accts) * 10000.0 / cost ELSE null END AS reached_per_10k,
        sim_pipeline AS simulated_pipeline_usd,
+       reg_accts AS registered_accounts_sim, reg_people AS registered_people_sim,
        [h IN hits | h.path + ' (' + h.prov + ')'] AS why
 ORDER BY reached_per_10k DESC

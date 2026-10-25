@@ -111,6 +111,11 @@ with st.sidebar:
     for k, v in PROV_BADGE.items():
         st.markdown(f"<span class='dot' style='background:{PROV_COLOR[k]}'></span>{v}", unsafe_allow_html=True)
     st.caption("Pipeline and past-event outcomes are **simulated** LabFlow data.")
+    st.markdown("---")
+    use_reg = st.toggle("Factor in attendee lists (simulated)", value=False,
+                        help="Masked organizer attendee lists (company + title, simulated). Adds weighted "
+                             "credit for ICP accounts with registrants; real presence still counts fully.")
+    reg_weight = st.slider("Attendee-list weight", 0.0, 1.0, 0.3, 0.05, disabled=not use_reg)
 
 if not regions:
     st.warning("Select at least one region.")
@@ -208,6 +213,12 @@ with tab_icp:
             column_config={"Source": st.column_config.LinkColumn("Source")})
 
 rows = load_scores(tuple(regions), date_from, date_to)
+for r in rows:
+    # blended reach: confirmed presence + weighted simulated registrant accounts not already present
+    extra = max((r.get("registered_accounts_sim") or 0) - r["accounts_present"], 0) if use_reg else 0
+    r["blended_per_10k"] = ((r["accounts_present"] + reg_weight * extra) * 10000.0 / r["cost"]) if r["cost"] else 0
+if use_reg:
+    rows.sort(key=lambda r: r["blended_per_10k"], reverse=True)
 if not rows:
     with tab_list:
         st.warning("No events in this window/region.")
@@ -226,10 +237,15 @@ with tab_list:
         "Total cost": money(r["cost"]),
         "Accounts / $10k": round(r["reached_per_10k"] or 0, 2),
         "Pipeline at event (simulated)": money(r["simulated_pipeline_usd"]),
+        "ICP accts on attendee list (simulated)": r.get("registered_accounts_sim") or 0,
+        **({"Blended / $10k": round(r["blended_per_10k"], 2)} if use_reg else {}),
         "Cost has estimates": "yes" if "estimated" in (r["pass_price_prov"], r["booth_price_prov"], r["travel_est_prov"]) else "no",
     } for i, r in enumerate(rows)])
     st.dataframe(df, hide_index=True, use_container_width=True)
-    st.caption("Ranked by ICP target accounts reached per $10k. Density = ICP accounts present / total ICP accounts.")
+    st.caption(("Ranked by blended reach: confirmed ICP accounts + "
+                f"{reg_weight:.2f} × extra ICP accounts on the simulated attendee list, per $10k. ")
+               if use_reg else
+               "Ranked by ICP target accounts reached per $10k. Density = ICP accounts present / total ICP accounts.")
 
 # ---------- why panel ----------
 with tab_why:
