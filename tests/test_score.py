@@ -43,10 +43,19 @@ DOC = {"events": [
 ]}
 
 
+MASKED = [  # masked attendee list rows (company + title only)
+    {"series": "pricey", "year": "2026", "company": "MODERNA THERAPEUTICS", "title": "Scientist", "simulated": "true"},
+    {"series": "pricey", "year": "2026", "company": "Moderna, Inc.", "title": "Lab Manager", "simulated": "true"},
+    {"series": "pricey", "year": "2026", "company": "Moderna", "title": "", "simulated": "true"},
+    {"series": "pricey", "year": "2026", "company": "", "title": "CEO", "simulated": "true"},
+    {"series": "not-in-cache", "year": "2026", "company": "Bayer", "title": "CSO", "simulated": "true"},
+]
+
+
 @pytest.fixture(scope="module")
 def graph():
     g = get_db().select_graph("conferenceos_test")
-    build(g, DOC)
+    build(g, DOC, masked=MASKED)
     yield g
     g.delete()
 
@@ -70,3 +79,13 @@ def test_ranking_and_paths(graph):
     assert rows[1]["reached_per_10k"] == pytest.approx(0.5)
     # exhibitors must not be explained as sponsors (Qodo PR #3)
     assert any(w.startswith("Bayer -[EXHIBITS_AT]->") for w in rows[1]["why"])
+
+
+def test_masked_attendees_roll_up_per_account(graph):
+    res = graph.query(
+        """MATCH (a:Account)-[r:REGISTERED_AT]->(e:Event)
+           RETURN a.name, e.event_id, r.count, r.titles, r.prov, r.year""")
+    # three spellings of Moderna resolve to one account edge; blank company and unknown series are skipped
+    assert res.result_set == [["Moderna", "pricey", 3, ["Lab Manager", "Scientist"], "simulated", 2026]]
+    # reference data only: does not change the ranking
+    assert [r["accounts_present"] for r in score_events(graph)] == [3, 2]
