@@ -30,9 +30,18 @@ def alias_map(accounts: list[dict]) -> dict[str, str]:
     return m
 
 
-def build(graph, cache_doc: dict, accounts: list[dict] | None = None, live: list[dict] | None = None) -> dict:
-    """`accounts` overrides icp_accounts.csv (ICP edited in the app); `live` adds live-scan evidence."""
+def load_masked_attendees() -> list[dict]:
+    """Internal reference: organizer-style masked attendee list (company + title, no names). Simulated."""
+    path = DATA / "synthetic" / "masked_attendees.csv"
+    return list(csv.DictReader(open(path))) if path.exists() else []
+
+
+def build(graph, cache_doc: dict, accounts: list[dict] | None = None, live: list[dict] | None = None,
+          masked: list[dict] | None = None) -> dict:
+    """`accounts` overrides icp_accounts.csv (ICP edited in the app); `live` adds live-scan evidence;
+    `masked` overrides the masked attendee list in data/synthetic."""
     accounts = accounts if accounts is not None else load_accounts()
+    masked = masked if masked is not None else load_masked_attendees()
     aliases = alias_map(accounts)
 
     def ckey(name: str) -> str:
@@ -152,5 +161,33 @@ def build(graph, cache_doc: dict, accounts: list[dict] | None = None, live: list
            MERGE (p)-[:WORKS_AT {prov: s.prov}]->(c)""",
         {"rows": speakers},
     )
+    # Masked list rows are one registrant each; roll them up to one edge per (series, company).
+    # Linked by series to the upcoming edition, with the list's year kept on the edge.
+    regs: dict = {}
+    for m in masked:
+        if not m.get("company"):
+            continue
+        r = regs.setdefault((m["series"], ckey(m["company"])), {
+            "series": m["series"], "key": ckey(m["company"]), "name": m["company"], "year": int(m["year"]),
+            "count": 0, "titles": set(), "as_names": set(),
+            "prov": "simulated" if m.get("simulated") == "true" else "internal"})
+        r["count"] += 1
+        r["as_names"].add(m["company"])
+        if m.get("title"):
+            r["titles"].add(m["title"])
+    reg_rows = [dict(r, titles=sorted(r["titles"]), as_name="; ".join(sorted(r.pop("as_names"))))
+                for r in regs.values()]
+    res = graph.query(
+        """UNWIND $rows AS m MATCH (e:Event {series: m.series})
+           MERGE (c:Company {key: m.key}) ON CREATE SET c.name = m.name
+           MERGE (c)-[r:REGISTERED_AT]->(e)
+           SET r.year = m.year, r.count = m.count, r.titles = m.titles, r.as_name = m.as_name,
+               r.prov = m.prov, r.source = 'masked_attendee_list'
+           RETURN count(r)""",
+        {"rows": reg_rows},
+    )
+    linked = res.result_set[0][0] if res.result_set else 0
     return {"events": len(events), "sponsor_edges": len(sponsors), "attend_edges": len(attends),
-            "speakers": len(speakers), "accounts": len(accounts), "opportunities": len(opps)}
+            "speakers": len(speakers), "accounts": len(accounts), "opportunities": len(opps),
+            "masked_attendees": len(masked), "registered_edges": linked,
+            "registered_unmatched_series": sorted({r["series"] for r in reg_rows} - {e["series"] for e in events})}
